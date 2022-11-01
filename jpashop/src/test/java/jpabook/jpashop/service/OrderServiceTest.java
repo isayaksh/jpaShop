@@ -85,12 +85,7 @@ public class OrderServiceTest {
     }
 
     private Book createBook() {
-        Book book = new Book();
-        book.setName("JPA");
-        book.setIsbn("7531");
-        book.setAuthor("김영한");
-        book.setPrice(10000);
-        book.setStockQuantity(10);
+        Book book = Book.createBook("JPA",10000,10,"김영한", "7531");
         em.persist(book);
         return book;
     }
