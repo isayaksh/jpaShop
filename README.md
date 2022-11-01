@@ -1,25 +1,32 @@
 # jpaShop
 실전! 스프링부트와 JPA 활용
 
-### 📒 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발
+### 💻 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발
 
-#### 스프링 부트와 JPA를 활용한 웹 애플리케이션 설계 및 개발에 대해 학습하였습니다. (~22.10.31)
+#### 스프링 부트와 JPA를 활용한 웹 애플리케이션 설계 및 개발에 대해 학습 (~22.10.31)
 
-#### 해당 학습을 통해 배운 것을 정리하였습니다.
+#### 해당 학습을 통해 배운 정보
 
   → 📒 [build.gradle](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-build.gradle)
 
   → 📒 [application.yml](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-application.yml)
 
-#### 해당 프로젝트를 기반으로 코드 리팩토링을 진행할 예정입니다.
+#### 해당 프로젝트를 기반으로 코드 리팩토링 진행
 - `Entity`의 기본 생성자의 접근 제어자 `public` → `protected`로 변경 (🗓 22.10.31 ~ 22.11.01)
 
   → 📒 [객체 생성자 접근 제어자를 `public` → `protected`로 변경하는 이유](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4-protected%EB%A1%9C-%EB%B3%80%EA%B2%BD)
+  
 - `Entity`의 `Setter` 제거 (🗓 22.11.01 ~ 22.11.01)
 
   → 📒 [Entity의 Setter 사용을 지양하는 이유](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-Entity-Setter-%EC%A0%9C%EA%B1%B0)
+  
 - 주문 시 2개 이상의 제품을 한 번에 주문하는 기능 추가(22.11.01 ~ ing)
 - `Book` 이외의 `Item`인 `Album` 과 `Movie`에 대한 주문 기능 추가
+
+#### 코드를 수정하면서 발생한 문제 및 해결 방안
+- 부모 클래스를 상속(`extends`)한 자식 클래스에서 부모 변수의 멤버변수를 변경하기 위한 방법
+
+  → 💡 [ㅁㄴㅇ]()
 
 #### 각 페이지 별 핵심 비지니스 로직
 
