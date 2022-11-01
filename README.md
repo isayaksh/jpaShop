@@ -9,7 +9,7 @@
 
   → 📒 [build.gradle](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-build.gradle)
 
-  → 📒 [application.yml]()
+  → 📒 [application.yml](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-application.yml)
 
 #### 해당 프로젝트를 기반으로 코드 리팩토링을 진행할 예정입니다.
 - `Entity`의 기본 생성자의 접근 제어자 `public` → `protected`로 변경 (🗓 22.10.31 ~ 22.11.01)
