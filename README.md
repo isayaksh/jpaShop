@@ -14,6 +14,8 @@
 
   → 📒 [객체 생성자 접근 제어자를 `public` → `protected`로 변경하는 이유](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4-protected%EB%A1%9C-%EB%B3%80%EA%B2%BD)
 - `Entity`의 `Setter` 제거 및 `Setter`로 작성된 코드 재작성 (22.11.01 ~ 22.11.01)
+
+  → 📒 [Entity의 Setter 사용을 지양하는 이유](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-Entity-Setter-%EC%A0%9C%EA%B1%B0)
 - 주문 시 2개 이상의 제품을 한 번에 주문하는 기능 추가(22.11.01 ~ ing)
 - `Book` 이외의 `Item`인 `Album` 과 `Movie`에 대한 주문 기능 추가
 
