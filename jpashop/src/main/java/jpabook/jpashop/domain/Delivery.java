@@ -1,15 +1,18 @@
 package jpabook.jpashop.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.LAZY;
+import static lombok.AccessLevel.PROTECTED;
 
 @Entity
-@Getter @Setter
+@Getter
+@NoArgsConstructor(access = PROTECTED)
 public class Delivery {
 
     @Id @GeneratedValue
@@ -25,4 +28,13 @@ public class Delivery {
     @Enumerated(value = STRING)
     private DeliveryStatus status;
 
+    public static Delivery createDelivery(Address address) {
+        Delivery delivery = new Delivery();
+        delivery.address = address;
+        return delivery;
+    }
+
+    public void setOrder(Order order){
+        this.order = order;
+    }
 }

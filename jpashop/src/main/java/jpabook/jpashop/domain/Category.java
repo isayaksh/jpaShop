@@ -2,6 +2,7 @@ package jpabook.jpashop.domain;
 
 import jpabook.jpashop.domain.item.Item;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
+import static lombok.AccessLevel.PROTECTED;
 
 @Entity
-@Getter @Setter
+@Getter
+@NoArgsConstructor(access = PROTECTED)
 public class Category {
 
     @Id @GeneratedValue
@@ -36,7 +39,6 @@ public class Category {
     // 연관 관계 편의 메소드
     public void addChildCategory(Category child){
         this.child.add(child);
-        child.setParent(this);
+        child.parent = this;
     }
-
 }

@@ -12,7 +12,7 @@ import static javax.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity
-@Getter @Setter
+@Getter
 @NoArgsConstructor(access = PROTECTED)
 public class OrderItem {
 
@@ -35,9 +35,9 @@ public class OrderItem {
     //==생성 메소드==//
     public static OrderItem createOrderItem(Item item, int orderPrice, int count){
         OrderItem orderItem = new OrderItem();
-        orderItem.setItem(item);
-        orderItem.setOrderPrice(orderPrice);
-        orderItem.setCount(count);
+        orderItem.item = item;
+        orderItem.orderPrice = orderPrice;
+        orderItem.count = count;
 
         item.removeStock(count);
         return orderItem;
@@ -51,5 +51,9 @@ public class OrderItem {
     //COMMENT 조회 로직
     public int getTotalPrice() {
         return getOrderPrice() * getCount();
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }

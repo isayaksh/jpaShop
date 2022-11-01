@@ -28,8 +28,7 @@ public class MemberServiceTest {
     @Test
     public void 회원가입() throws Exception {
         // given
-        Member member = new Member();
-        member.setName("memberA");
+        Member member = Member.createMember("memberA",null);
 
         // when
         Long memberId = memberService.join(member);
@@ -42,10 +41,8 @@ public class MemberServiceTest {
     @Test()
     public void 중복_회원_예외() throws Exception {
         // given
-        Member member1 = new Member();
-        Member member2 = new Member();
-        member1.setName("memberA");
-        member2.setName("memberA");
+        Member member1 = Member.createMember("memberA",null);
+        Member member2 = Member.createMember("memberA",null);
 
         // when
         memberService.join(member1);
@@ -54,8 +51,6 @@ public class MemberServiceTest {
         } catch (IllegalStateException e){
             return;
         }
-
-
         // then
         fail("예외가 발생해야 한다.");
     }

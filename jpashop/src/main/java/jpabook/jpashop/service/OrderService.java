@@ -32,8 +32,7 @@ public class OrderService {
         Item item = itemRepository.findItem(itemId);
 
         // 배송정보 생성
-        Delivery delivery = new Delivery();
-        delivery.setAddress(member.getAddress());
+        Delivery delivery = Delivery.createDelivery(member.getAddress());
 
         // 주문 상품 생성
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);

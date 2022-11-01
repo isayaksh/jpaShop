@@ -96,9 +96,7 @@ public class OrderServiceTest {
     }
 
     private Member createMember() {
-        Member member = new Member();
-        member.setName("user");
-        member.setAddress(new Address("수원시", "행궁동","123-123"));
+        Member member = Member.createMember("user",new Address("수원시", "행궁동","123-123"));
         em.persist(member);
         return member;
     }

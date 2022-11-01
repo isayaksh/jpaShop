@@ -20,7 +20,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Entity
 @Table(name = "orders")
-@Getter @Setter
+@Getter
 @NoArgsConstructor(access = PROTECTED)
 public class Order {
 
@@ -68,8 +68,8 @@ public class Order {
         for (OrderItem orderItem : orderItems) {
             order.addOrderItem(orderItem);
         }
-        order.setStatus(ORDER);
-        order.setOrderDate(LocalDateTime.now());
+        order.status = ORDER;
+        order.orderDate = LocalDateTime.now();
         return order;
     }
 
@@ -80,7 +80,7 @@ public class Order {
         if(delivery.getStatus() == COMP){
             throw new IllegalStateException("이미 배송 완료된 상품은 취소가 불가능합니다.");
         }
-        this.setStatus(CANCEL);
+        this.status = CANCEL;
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
