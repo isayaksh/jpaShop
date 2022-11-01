@@ -26,7 +26,7 @@
 #### 코드를 수정하면서 발생한 문제 및 해결 방안
 - 부모 클래스를 상속(`extends`)한 자식 클래스에서 부모 변수의 멤버변수를 변경하기 위한 방법
 
-  → 💡 [ㅁㄴㅇ]()
+  → 💡 [[문제&해결] 접근 제한자 protected의 사용을 통한 코드 중복 해결](https://velog.io/@isayaksh/JAVA-%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90-protected%EC%9D%98-%EC%82%AC%EC%9A%A9-%EB%A8%B8%EC%8B%9C%EA%B8%B0)
 
 #### 각 페이지 별 핵심 비지니스 로직
 
