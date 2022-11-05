@@ -30,7 +30,7 @@ public class MemberController {
         if(result.hasErrors()){
             return "members/createMemberForm";
         }
-        Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
+        Address address = Address.createAddress(form.getCity(), form.getStreet(), form.getZipcode());
         Member member = Member.createMember(form.getName(),address);
         memberService.join(member);
         return "redirect:/";
