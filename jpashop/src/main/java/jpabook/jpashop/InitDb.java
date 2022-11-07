@@ -30,7 +30,7 @@ public class InitDb {
         private final EntityManager em;
         public void dbInit1(){
             Address address1 = Address.createAddress("수원", "행궁동", "23541");
-            Member member1 = Member.createMember("userA", address1);
+            Member member1 = Member.createMember("ID1","PASSWORD1","userA", address1);
             em.persist(member1);
             Book book1 = Book.createBook("JPA1 BOOK", 38700, 100, "김영한", "12321");
             em.persist(book1);
@@ -48,7 +48,7 @@ public class InitDb {
 
         public void dbInit2(){
             Address address1 = Address.createAddress("동탄", "동탄 순환대로", "10988");
-            Member member1 = Member.createMember("userB", address1);
+            Member member1 = Member.createMember("ID2","PASSWORD2","userB", address1);
             em.persist(member1);
             Book book1 = Book.createBook("SPRING1 BOOK", 15000, 100, "김영한", "54321");
             em.persist(book1);

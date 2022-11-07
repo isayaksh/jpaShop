@@ -31,4 +31,10 @@ public class MemberRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
+
+    public List<Member> findByIdentifier(String identifier){
+        return em.createQuery("select m from Member m where m.identifier = :identifier",Member.class)
+                .setParameter("identifier", identifier)
+                .getResultList();
+    }
 }

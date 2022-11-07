@@ -31,7 +31,7 @@ public class MemberApiController {
     /** API 요청 스펙에 맞추어 별도의 DTO 를 파라미터로 받는 것이 좋다. **/
     @PostMapping("/api/v2/members")
     public CreateMemberResponse saveMemberV2(@RequestBody @Valid CreateMemberRequest request){
-        Member member = Member.createMember(request.getName(), null);
+        Member member = Member.createMember(null,null, request.getName(), null);
         Long id = memberService.join(member);
         return new CreateMemberResponse(id);
     }

@@ -16,9 +16,9 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     // 회원 가입
-    @Transactional(readOnly = false) // DB에 데이터를 변경하는 경우 추가해준다.
+    @Transactional // DB에 데이터를 변경하는 경우 추가해준다.
     public Long join(Member member){
-        validateDuplicateMember(member.getName()); // 중복 회원 검증
+        validateDuplicateMember(member.getIdentifier()); // 중복 회원 검증
         memberRepository.save(member);
         return member.getId();
     }
@@ -32,10 +32,10 @@ public class MemberService {
         return memberRepository.findOne(memberId);
     }
 
-    private void validateDuplicateMember(String name) {
+    private void validateDuplicateMember(String identifier) {
         //EXCEPTION
-        List<Member> findMembers = memberRepository.findByName(name);
-        if(!findMembers.isEmpty()){
+        List<Member> findMember = memberRepository.findByIdentifier(identifier);
+        if(!findMember.isEmpty()){
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
