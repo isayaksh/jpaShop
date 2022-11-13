@@ -1,14 +1,13 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.controller.login.LoginForm;
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.exception.NotCorrespondingEmailException;
 import jpabook.jpashop.repository.MemberRepository;
-import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,4 +53,47 @@ public class MemberServiceTest {
         // then
         fail("예외가 발생해야 한다.");
     }
+
+//    @Test
+//    public void 로그인() throws Exception {
+//        // given
+//        Member member = Member.createMember("ID","PASSWORD","memberA",null);
+//        Long memberId = memberService.join(member);
+//        // when
+//        LoginForm form = new LoginForm(member.getEmail(), member.getPassword());
+//        memberService.login(form);
+//        // then
+//    }
+//
+//    @Test
+//    public void 로그인_아이디_오류() throws Exception {
+//        // given
+//        Member member = Member.createMember("ID","PASSWORD","memberA",null);
+//        Long memberId = memberService.join(member);
+//        LoginForm form = new LoginForm("NOID", member.getPassword());
+//        // when
+//        try{
+//            memberService.login(form);
+//        } catch (NotCorrespondingEmailException e){
+//            return;
+//        }
+//        // then
+//        fail("예외가 발생해야 한다.");
+//    }
+//
+//    @Test
+//    public void 로그인_비밀번호_오류() throws Exception {
+//        // given
+//        Member member = Member.createMember("ID","PASSWORD","memberA",null);
+//        Long memberId = memberService.join(member);
+//        LoginForm form = new LoginForm(member.getEmail(), "NOPASSWORD");
+//        // when
+//        try{
+//            memberService.login(form);
+//        } catch (IllegalStateException e){
+//            return;
+//        }
+//        // then
+//        fail("예외가 발생해야 한다.");
+//    }
 }

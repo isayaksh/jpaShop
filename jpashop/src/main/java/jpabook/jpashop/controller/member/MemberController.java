@@ -1,4 +1,4 @@
-package jpabook.jpashop.controller;
+package jpabook.jpashop.controller.member;
 
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,7 +32,7 @@ public class MemberController {
             return "members/createMemberForm";
         }
         Address address = Address.createAddress(form.getCity(), form.getStreet(), form.getZipcode());
-        Member member = Member.createMember(form.getIdentifier(), form.getPassword(), form.getName(),address);
+        Member member = Member.createMember(form.getEmail(), form.getPassword(), form.getName(),address);
         memberService.join(member);
         return "redirect:/";
     }

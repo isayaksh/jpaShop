@@ -5,8 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div class="container">
+    <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <span th:text="${member.name}"></span>
+    <span>고객님 반갑습니다.</span>
+    <span>
+        <form action="/logout" method="post" style="float: right;">
+            <button type="submit" class="btn btn-outline-warning btn-sm">로그아웃</button>
+        </form>
+    </span>
+
     <div class="jumbotron">
         <h1>HELLO SHOP</h1>
         <p class="lead">회원 기능</p>

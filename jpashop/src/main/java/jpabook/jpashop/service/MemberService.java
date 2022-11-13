@@ -1,12 +1,15 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.controller.login.LoginForm;
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.exception.NotCorrespondingEmailException;
 import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true) // 모든 통신활동 설정을 readOnly = true로 설정한다.
@@ -18,7 +21,7 @@ public class MemberService {
     // 회원 가입
     @Transactional // DB에 데이터를 변경하는 경우 추가해준다.
     public Long join(Member member){
-        validateDuplicateMember(member.getIdentifier()); // 중복 회원 검증
+        validateDuplicateMember(member.getEmail()); // 중복 회원 검증
         memberRepository.save(member);
         return member.getId();
     }
@@ -32,10 +35,10 @@ public class MemberService {
         return memberRepository.findOne(memberId);
     }
 
-    private void validateDuplicateMember(String identifier) {
+    private void validateDuplicateMember(String email) {
         //EXCEPTION
-        List<Member> findMember = memberRepository.findByIdentifier(identifier);
-        if(!findMember.isEmpty()){
+        Optional<Member> findMember = memberRepository.findByEmail(email);
+        if(findMember.isPresent()){
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }
