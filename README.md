@@ -24,6 +24,10 @@
 
   → 📒 [주문 내역 각 Item 별 분할 출력](https://velog.io/@isayaksh/%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9)
   
+- 이메일과 비밀번호를 통한 로그인 기능 구현 (🗓 22.11.09 ~ 22.11.13)
+
+  → 📒 [Login 기능 구현](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-Login-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84)
+  
 - 주문할 제품을 장바구니에 추가하는 기능 추가(🗓 22.11.01 ~ ing)
 - `Book` 이외의 `Item`인 `Album` 과 `Movie`에 대한 주문 기능 추가
 
@@ -33,6 +37,9 @@
   → 💡 [[문제&해결] 접근 제한자 protected의 사용을 통한 코드 중복 해결](https://velog.io/@isayaksh/JAVA-%EC%A0%91%EA%B7%BC-%EC%A0%9C%ED%95%9C%EC%9E%90-protected%EC%9D%98-%EC%82%AC%EC%9A%A9-%EB%A8%B8%EC%8B%9C%EA%B8%B0)
 
 #### 🧷 각 페이지 별 핵심 비지니스 로직
+
+#### 📌 로그인 화면
+![image](https://user-images.githubusercontent.com/85926257/201507554-2dd0dfc9-444a-4145-aa60-69e901420106.png)
 
 #### 📌 메인 화면
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991130-86ec215e-1204-4e26-8c7b-a4536cdcb546.png">
