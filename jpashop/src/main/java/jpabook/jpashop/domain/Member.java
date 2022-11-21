@@ -25,7 +25,7 @@ public class Member {
     private String email;
     private String password;
 
-    private String name;
+    private String username;
 
     @Embedded
     private Address address;
@@ -38,13 +38,13 @@ public class Member {
         Member member = new Member();
         member.email = email;
         member.password = password;
-        member.name = name;
+        member.username = name;
         member.address = address;
         return member;
     }
 
     public void changeName(String name) {
-        this.name = name;
+        this.username = name;
     }
     public boolean checkPassword(String password){
         return this.password.equals(password);
