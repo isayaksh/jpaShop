@@ -1,17 +1,16 @@
 package jpabook.jpashop.service;
 
-import jpabook.jpashop.domain.Delivery;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.exception.NotCorrespondingItemException;
 import jpabook.jpashop.exception.NotCorrespondingOrderException;
 import jpabook.jpashop.repository.ItemRepository;
-import jpabook.jpashop.repository.MemberRepository;
-import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.member.MemberRepository;
+import jpabook.jpashop.repository.order.OrderRepository;
 import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +20,7 @@ import java.util.Optional;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
+@Slf4j
 public class OrderService {
 
     private final OrderRepository orderRepository;
@@ -63,6 +63,8 @@ public class OrderService {
 
     // 검색
     public List<Order> findOrders(OrderSearch orderSearch){
+        log.info("name : "+orderSearch.getMemberName()+", status : "+orderSearch.getOrderStatus());
         return orderRepository.findAll(orderSearch);
     }
+
 }

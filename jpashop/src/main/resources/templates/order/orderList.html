@@ -41,7 +41,7 @@
             <th:block th:each="order : ${orders}">
                 <tr th:each="orderItem : ${order.orderItems}">
                     <td th:text="${order.id}"></td>
-                    <td th:text="${order.member.name}"></td>
+                    <td th:text="${order.member.username}"></td>
                     <td th:text="${orderItem.item.name}"></td>
                     <td th:text="${orderItem.orderPrice}"></td>
                     <td th:text="${orderItem.count}"></td>

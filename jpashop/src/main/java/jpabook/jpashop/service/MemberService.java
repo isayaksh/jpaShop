@@ -1,12 +1,13 @@
 package jpabook.jpashop.service;
 
-import jpabook.jpashop.controller.login.LoginForm;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.exception.NotCorrespondingEmailException;
-import jpabook.jpashop.repository.MemberRepository;
+import jpabook.jpashop.domain.member.Member;
+import jpabook.jpashop.domain.member.MemberDto;
+import jpabook.jpashop.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,13 +54,14 @@ public class MemberService {
     }
 
     public List<Member> findByName(String name){
-        return memberRepository.findByName(name);
+        return memberRepository.findByUsername(name);
     }
 
-    public Page<Member> findByPage(int offset, int size){
-        return memberRepository.findAll(PageRequest.of(offset, size));
+    /**
+     * 페이징 기법
+     **/
+    public Page<MemberDto> findAll(Pageable pageable){
+        return memberRepository.findAll(pageable).map(m -> new MemberDto(m));
     }
 
-
-    // 회원 페이징 조회
 }

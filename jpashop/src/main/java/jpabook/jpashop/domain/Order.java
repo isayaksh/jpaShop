@@ -1,9 +1,8 @@
 package jpabook.jpashop.domain;
 
+import jpabook.jpashop.domain.member.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.ByteBuddy;
-import org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor;
 
 import javax.persistence.*;
 
