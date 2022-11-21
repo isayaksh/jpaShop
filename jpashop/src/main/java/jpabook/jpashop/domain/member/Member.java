@@ -1,12 +1,13 @@
-package jpabook.jpashop.domain;
+package jpabook.jpashop.domain.member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jpabook.jpashop.domain.Address;
+import jpabook.jpashop.domain.Order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 

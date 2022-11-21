@@ -8,7 +8,7 @@
     <div class="container">
     <div th:replace="fragments/bodyHeader :: bodyHeader" />
 
-    <span th:text="${member.name}"></span>
+    <span th:text="${member.username}"></span>
     <span>고객님 반갑습니다.</span>
     <span>
         <form action="/logout" method="post" style="float: right;">

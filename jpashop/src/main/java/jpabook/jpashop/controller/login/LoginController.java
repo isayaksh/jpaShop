@@ -1,7 +1,7 @@
 package jpabook.jpashop.controller.login;
 
 import jpabook.jpashop.controller.SessionConst;
-import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

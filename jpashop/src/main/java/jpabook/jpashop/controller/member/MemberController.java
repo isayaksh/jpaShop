@@ -1,17 +1,19 @@
 package jpabook.jpashop.controller.member;
 
 import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.member.Member;
+import jpabook.jpashop.domain.member.MemberDto;
 import jpabook.jpashop.service.MemberService;
-import jpabook.jpashop.service.PageVO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,9 +40,14 @@ public class MemberController {
     }
 
     @GetMapping("/members")
-    public String list(Model model){
-        model.addAttribute("members", memberService.findAll());
+    public String list(@PageableDefault(size = 8)Pageable pageable, Model model){
+        Page<MemberDto> page = memberService.findAll(pageable);
+        model.addAttribute("members", page);
         return "/members/memberList";
     }
 
+    @GetMapping("/api/v1")
+    public Page<MemberDto> list1(Pageable pageable){
+        return memberService.findAll(pageable);
+    }
 }
