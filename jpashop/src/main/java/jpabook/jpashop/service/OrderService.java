@@ -5,6 +5,8 @@ import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderItem;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.exception.NotCorrespondingItemException;
+import jpabook.jpashop.exception.NotCorrespondingOrderException;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -28,8 +31,9 @@ public class OrderService {
     @Transactional
     public Long order(Long memberId, Long itemId, int count){
         // 엔티티 조회
-        Member member = memberRepository.findOne(memberId);
-        Item item = itemRepository.findItem(itemId);
+        Member member = memberRepository.findById(memberId).get();
+        Optional<Item> findItem = itemRepository.findById(itemId);
+        Item item = findItem.orElseThrow(() -> new NotCorrespondingItemException("해당하는 아이템이 존재하지 않습니다."));
 
         // 배송정보 생성
         Delivery delivery = Delivery.createDelivery(member.getAddress());
@@ -50,13 +54,15 @@ public class OrderService {
     @Transactional
     public void cancelOrder(Long orderId){
         // 엔티티 조회
-        Order order = orderRepository.findOne(orderId);
+
+        Optional<Order> findOrder = orderRepository.findById(orderId);
+        Order order = findOrder.orElseThrow(() -> new NotCorrespondingOrderException("해당하는 주문이 존재하지 않습니다."));
         // 주문 취소
         order.cancel();
     }
 
     // 검색
     public List<Order> findOrders(OrderSearch orderSearch){
-        return orderRepository.findAllByString(orderSearch);
+        return orderRepository.findAll(orderSearch);
     }
 }

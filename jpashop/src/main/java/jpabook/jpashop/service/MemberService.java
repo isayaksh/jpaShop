@@ -5,6 +5,8 @@ import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.exception.NotCorrespondingEmailException;
 import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +34,7 @@ public class MemberService {
     }
 
     public Member findOne(Long memberId){
-        return memberRepository.findOne(memberId);
+        return memberRepository.findById(memberId).get();
     }
 
     private void validateDuplicateMember(String email) {
@@ -45,7 +47,7 @@ public class MemberService {
 
     @Transactional
     public void update(Long id, String name) {
-        Member member = memberRepository.findOne(id);
+        Member member = memberRepository.findById(id).get();
         validateDuplicateMember(name);
         member.changeName(name);
     }
@@ -53,4 +55,11 @@ public class MemberService {
     public List<Member> findByName(String name){
         return memberRepository.findByName(name);
     }
+
+    public Page<Member> findByPage(int offset, int size){
+        return memberRepository.findAll(PageRequest.of(offset, size));
+    }
+
+
+    // 회원 페이징 조회
 }

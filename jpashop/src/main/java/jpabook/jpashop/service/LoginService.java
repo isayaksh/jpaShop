@@ -4,6 +4,7 @@ import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.exception.NotCorrespondingEmailException;
 import jpabook.jpashop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +19,11 @@ public class LoginService {
 
     public Member login(String email, String password) {
         Optional<Member> findMember = memberRepository.findByEmail(email);
+
         if(!findMember.orElseThrow(()->new NotCorrespondingEmailException("해당 이메일이 존재하지 않습니다.")).checkPassword(password)){
             throw new IllegalStateException("이메일과 비밀번호가 일치하지 않습니다.");
         }
         return findMember.get();
     }
+
 }
