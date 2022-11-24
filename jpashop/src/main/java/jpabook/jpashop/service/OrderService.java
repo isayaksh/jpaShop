@@ -8,7 +8,7 @@ import jpabook.jpashop.exception.NotCorrespondingOrderException;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.member.MemberRepository;
 import jpabook.jpashop.repository.order.OrderRepository;
-import jpabook.jpashop.repository.OrderSearch;
+import jpabook.jpashop.repository.order.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

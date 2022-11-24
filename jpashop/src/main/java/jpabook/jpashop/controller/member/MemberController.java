@@ -29,7 +29,6 @@ public class MemberController {
 
     @PostMapping("/members/new")
     public String create(@Valid MemberForm form, BindingResult result){
-
         if(result.hasErrors()){
             return "members/createMemberForm";
         }
@@ -46,8 +45,4 @@ public class MemberController {
         return "/members/memberList";
     }
 
-    @GetMapping("/api/v1")
-    public Page<MemberDto> list1(Pageable pageable){
-        return memberService.findAll(pageable);
-    }
 }

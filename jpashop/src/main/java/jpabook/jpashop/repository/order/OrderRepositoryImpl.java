@@ -6,7 +6,6 @@ import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.domain.QMember;
 import jpabook.jpashop.domain.QOrder;
-import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 
