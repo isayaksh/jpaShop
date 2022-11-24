@@ -28,6 +28,11 @@
 
   → 📒 [Login 기능 구현](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-Login-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84)
   
+
+- Cache를 이용한 회원 목록 중복 쿼리 제거 (🗓 22.11.22 ~ 22.11.24)
+
+  → 📒 [Cache를 활용한 Query 중복 제거](https://velog.io/@isayaksh/Spring-Cache%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-Query-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0)
+  
 - 주문할 제품을 장바구니에 추가하는 기능 추가(🗓 22.11.01 ~ ing)
 - `Book` 이외의 `Item`인 `Album` 과 `Movie`에 대한 주문 기능 추가
 
