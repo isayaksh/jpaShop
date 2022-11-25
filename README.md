@@ -3,13 +3,7 @@
 
 ### 💻 실전! 스프링 부트와 JPA 활용1 - 웹 애플리케이션 개발
 
-#### 🧷 스프링 부트와 JPA를 활용한 웹 애플리케이션 설계 및 개발에 대해 학습 (~22.10.31)
-
-#### 🧷 해당 학습을 통해 배운 정보
-
-  → 📒 [build.gradle](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-build.gradle)
-
-  → 📒 [application.yml](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-application.yml)
+#### 🧷 스프링 부트와 JPA를 활용한 웹 애플리케이션 설계 및 개발에 대해 학습 (🗓 ~ 22.10.31)
 
 #### 🧷 해당 프로젝트를 기반으로 코드 리팩토링 진행
 |📌 수정 사항|🗓 진행 일자|📒 수정 내용|
@@ -24,18 +18,22 @@
 #### 🧷 각 페이지 별 핵심 비지니스 로직
 
 #### 📌 로그인 화면
+- [UPDATE] 🗓 22.11.13
 ![image](https://user-images.githubusercontent.com/85926257/201507554-2dd0dfc9-444a-4145-aa60-69e901420106.png)
 
 #### 📌 메인 화면
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991130-86ec215e-1204-4e26-8c7b-a4536cdcb546.png">
 
+#### 📌 회원 등록
+- [UPDATE] 🗓 22.11.13
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/203932498-3582fcc7-0c9b-4995-8184-61402fe2ab60.png">
+
 #### 📌 회원 목록
-<img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991311-a76031c1-0de2-4e23-9e16-8e15928812ce.png">
+- [UPDATE] 🗓 22.11.21
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/203932813-e35f3034-f6cb-4a63-a8fa-f128ac504563.png">
 
 #### 📌 상품 등록
-<img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991408-afa7c1ec-3992-451f-be58-a833a8be81e9.png">
-
-#### 📌 상품 등록
+- [UPDATE] 🗓 22.11.25
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991467-0e351c2e-bc49-4973-925a-6fd2a952dd08.png">
 
 #### 📌 상품 목록
@@ -48,4 +46,5 @@
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198992311-707a09fb-3ad7-44c0-af05-ccef2259523c.png">
 
 #### 📌 주문 내역
-<img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198992361-721a45f8-8028-4273-ac06-43501da243ee.png">
+- [UPDATE] 🗓 22.11.05
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/203933004-bf2e5d10-8861-4b01-9a2b-7037774ef1c6.png">
