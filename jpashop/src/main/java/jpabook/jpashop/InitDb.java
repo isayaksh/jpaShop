@@ -2,6 +2,7 @@ package jpabook.jpashop;
 
 import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.item.Book;
+import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ public class InitDb {
         initService.dbInit1();
         initService.dbInit2();
         initService.dbInit3();
+        initService.dbInit4();
     }
 
     @Component
@@ -118,6 +120,16 @@ public class InitDb {
             em.persist(member25);
             Member member26 = Member.createMember("email26@gmail.com", "password", "userZ", Address.createAddress("cityZ", "streetZ", "111111"));
             em.persist(member26);
+
+        }
+
+        public void dbInit4(){
+            for(int i = 1; i <28; i++){
+                int price = 10000 + (int)(Math.random()*20000);
+                String isbn = Integer.toString(10000 + (int)(Math.random()*90000));
+                Book book = Book.createBook("Book" + i, price, 100, "author" + i, isbn);
+                em.persist(book);
+            }
 
         }
     }

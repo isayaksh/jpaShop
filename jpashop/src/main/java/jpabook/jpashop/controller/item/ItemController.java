@@ -1,10 +1,14 @@
-package jpabook.jpashop.controller;
+package jpabook.jpashop.controller.item;
 
+import jpabook.jpashop.controller.item.BookForm;
+import jpabook.jpashop.domain.item.Album;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.Movie;
 import jpabook.jpashop.exception.NotCorrespondingItemException;
 import jpabook.jpashop.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,20 +20,48 @@ import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class ItemController {
 
     private final ItemService itemService;
 
-    @GetMapping("/items/new")
-    public String createForm(Model model){
-        model.addAttribute("form", new BookForm());
-        return "items/createItemForm";
+    @GetMapping("/items/new/album")
+    public String createAlbumForm(Model model){
+        model.addAttribute("form", new AlbumForm());
+        return "items/createAlbumForm";
     }
 
-    @PostMapping("/items/new")
-    public String create(BookForm form){
+    @GetMapping("/items/new/book")
+    public String createBookForm(Model model){
+        model.addAttribute("form", new BookForm());
+        return "items/createBookForm";
+    }
+
+    @GetMapping("/items/new/movie")
+    public String createMovieForm(Model model){
+        log.info("### createMovieForm ###");
+        model.addAttribute("form", new MovieForm());
+        return "items/createMovieForm";
+    }
+
+    @PostMapping("/items/new/album")
+    public String createAlbum(AlbumForm form){
+        Album album = Album.createAlbum(form.getName(), form.getPrice(), form.getStockQuantity(), form.getArtist(), form.getEtc());
+        itemService.saveItem(album);
+        return "redirect:/items";
+    }
+
+    @PostMapping("/items/new/book")
+    public String createBook(BookForm form){
         Book book = Book.createBook(form.getName(), form.getPrice(), form.getStockQuantity(), form.getAuthor(), form.getIsbn());
         itemService.saveItem(book);
+        return "redirect:/items";
+    }
+
+    @PostMapping("/items/new/movie")
+    public String createMovie(MovieForm form){
+        Movie movie = Movie.createMovie(form.getName(), form.getPrice(), form.getStockQuantity(), form.getDirector(), form.getActor());
+        itemService.saveItem(movie);
         return "redirect:/items";
     }
 
