@@ -4,7 +4,21 @@
 <body>
 <div class="container">
   <div th:replace="fragments/bodyHeader :: bodyHeader"/>
-  <form th:action="@{/items/new}" th:object="${form}" method="post">
+
+  <!-- select item -->
+  <div align="right">
+    <label>등록하고자 하는 상품 종류를 선택해 주세요.</label>
+    <br/>
+    <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+      <a type="button" class="btn btn-outline-dark" href="/items/new/album">ALBUM</a>
+      <a type="button" class="btn btn-outline-dark" href="/items/new/book">BOOK</a>
+      <a type="button" class="btn btn-outline-dark" href="/items/new/movie">MOVIE</a>
+    </div>
+  </div>
+  <br/>
+
+  <!-- itemForm -->
+  <form th:action="@{/items/new/movie}" th:object="${form}" method="post">
     <div class="form-group">
       <label th:for="name">상품명</label>
       <input type="text" th:field="*{name}" class="form-control"
@@ -20,19 +34,20 @@
       <input type="number" th:field="*{stockQuantity}" class="form-control" placeholder="수량을 입력하세요">
     </div>
     <div class="form-group">
-      <label th:for="author">저자</label>
-      <input type="text" th:field="*{author}" class="form-control"
-             placeholder="저자를 입력하세요">
+      <label th:for="director">감독</label>
+      <input type="text" th:field="*{director}" class="form-control"
+             placeholder="감독 입력하세요">
     </div>
     <div class="form-group">
-      <label th:for="isbn">ISBN</label>
-      <input type="text" th:field="*{isbn}" class="form-control"
-             placeholder="ISBN을 입력하세요">
+      <label th:for="actor">배우</label>
+      <input type="text" th:field="*{actor}" class="form-control"
+             placeholder="배우를 입력하세요">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   <br/>
-  <div th:replace="fragments/footer :: footer" />
+
+  <div th:replace="fragments/footer :: footer"/>
 </div> <!-- /container -->
 </body>
 </html>
