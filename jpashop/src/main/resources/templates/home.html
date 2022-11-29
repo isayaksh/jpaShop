@@ -5,36 +5,81 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <div class="container">
+<div class="row justify-content-center">
+    <div class="container col-5" style="text-align:center">
         <div th:replace="fragments/bodyHeader :: bodyHeader"/>
-
-        <div style="margin-bottom:30px">
-            <span th:text="${member.username} "></span>
-            <span>고객님 반갑습니다.</span>
-            <form action="/logout" method="post" style="float: right;">
+        <h1>HOME</h1>
+        <div style="text-align:right">
+            <form action="/logout" method="post">
                 <button type="submit" class="btn btn-outline-warning btn-sm">로그아웃</button>
             </form>
         </div>
-
-        <div class="jumbotron">
-            <h1>HELLO SHOP</h1>
-            <p class="lead">회원 기능</p>
-            <p>
-                <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>
-                <a class="btn btn-lg btn-secondary" href="/members">회원 목록</a>
-            </p>
-            <p class="lead">상품 기능</p>
-            <p>
-                <a class="btn btn-lg btn-dark" href="/items/new/book">상품 등록</a>
-                <a class="btn btn-lg btn-dark" href="/items">상품 목록</a>
-            </p>
-            <p class="lead">주문 기능</p>
-            <p>
-                <a class="btn btn-lg btn-info" href="/order">상품 주문</a>
-                <a class="btn btn-lg btn-info" href="/orders">주문 내역</a>
-            </p>
+        <hr/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">회원 가입</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="/members/new" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">회원 목록</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="/members" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">상품 등록</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="/items/new" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">상품 목록</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="/items" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">상품 주문</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="/order" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">주문 목록</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="/orders" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <div th:replace="fragments/footer :: footer" />
     </div> <!-- /container -->
+</div>
 </body>
 </html>

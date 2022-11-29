@@ -25,23 +25,12 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    @GetMapping("/items/new/album")
-    public String createAlbumForm(Model model){
-        model.addAttribute("form", new AlbumForm());
-        return "items/createAlbumForm";
-    }
-
-    @GetMapping("/items/new/book")
+    @GetMapping("/items/new")
     public String createBookForm(Model model){
-        model.addAttribute("form", new BookForm());
-        return "items/createBookForm";
-    }
-
-    @GetMapping("/items/new/movie")
-    public String createMovieForm(Model model){
-        log.info("### createMovieForm ###");
-        model.addAttribute("form", new MovieForm());
-        return "items/createMovieForm";
+        model.addAttribute("albumForm", new AlbumForm());
+        model.addAttribute("bookForm", new BookForm());
+        model.addAttribute("movieForm", new MovieForm());
+        return "items/createItemForm";
     }
 
     @PostMapping("/items/new/album")

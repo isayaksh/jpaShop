@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div class="header" th:fragment="bodyHeader">
-    <ul class="nav nav-pills pull-right">
-        <li><a href="/">Home</a></li>
-    </ul>
-    <a href="/"><h3 class="text-muted">HELLO SHOP</h3></a>
+<span class="float-end">
+    <form action="/logout" method="post">
+        <button type="submit" class="btn btn-outline-warning btn-sm">로그아웃</button>
+    </form>
+</span>
+<div class="header" th:fragment="bodyHeader" style="margin-top:10%; margin-bottom:3%">
+    <a href="/" style="text-align:left"><h3 class="text-muted">HELLO SHOP</h3></a>
 </div>
