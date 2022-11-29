@@ -15,28 +15,29 @@
 |이메일과 비밀번호를 통한 로그인 기능 구현|22.11.09 ~ 22.11.13|[Login 기능 구현](https://velog.io/@isayaksh/Spring-%EC%8B%A4%EC%A0%84-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8%EC%99%80-JPA-%ED%99%9C%EC%9A%A9-Login-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84)|
 |Cache를 이용한 회원 목록 중복 쿼리 제거|22.11.22 ~ 22.11.24|[Cache를 활용한 Query 중복 제거](https://velog.io/@isayaksh/Spring-Cache%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-Query-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0)|
 |Item에 누락된 Album, Movie 기능 구현|22.11.25 ~ 22.11.25|[상품 종류 별 상품 등록 기능 개선](https://velog.io/@isayaksh/Spring-%EC%83%81%ED%92%88-%EC%A2%85%EB%A5%98-%EB%B3%84-%EC%83%81%ED%92%88-%EB%93%B1%EB%A1%9D-%EA%B8%B0%EB%8A%A5-%EA%B0%9C%EC%84%A0)|
+|HTML 페이지 중복 제거|22.11.28 ~ 22.11.29|[상품 등록 페이지 중복 제거](https://velog.io/@isayaksh/Spring-HTML%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%83%81%ED%92%88-%EB%93%B1%EB%A1%9D-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0)|
 
 
 #### 🧷 각 페이지 별 핵심 비지니스 로직
 
 #### 📌 로그인 화면
 - [UPDATE] 🗓 22.11.13
-![image](https://user-images.githubusercontent.com/85926257/201507554-2dd0dfc9-444a-4145-aa60-69e901420106.png)
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/204483068-892c4c95-4b24-4a49-97f1-17ae1d4a7c47.png">
 
 #### 📌 메인 화면
-<img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991130-86ec215e-1204-4e26-8c7b-a4536cdcb546.png">
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/204486470-8567cf20-a55c-4186-9d7e-49f296ba2555.png">
 
 #### 📌 회원 등록
 - [UPDATE] 🗓 22.11.13
-<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/203932498-3582fcc7-0c9b-4995-8184-61402fe2ab60.png">
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/204483293-b59f8663-b801-4fe3-b143-b17c5d11d070.png">
 
 #### 📌 회원 목록
 - [UPDATE] 🗓 22.11.21
-<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/203932813-e35f3034-f6cb-4a63-a8fa-f128ac504563.png">
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/204483463-86290f69-f1ee-4a5e-ba56-77e905d62982.png">
 
 #### 📌 상품 등록
 - [UPDATE] 🗓 22.11.25
-<img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198991467-0e351c2e-bc49-4973-925a-6fd2a952dd08.png">
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/204483663-20e82b8d-f76b-4d41-ac9f-08b0b379d89b.png">
 
 #### 📌 상품 목록
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198992087-42653cde-2865-4864-9bc0-9a67c12f51b8.png">
@@ -47,6 +48,6 @@
 #### 📌 상품 주문
 <img width="1792" alt="image" src="https://user-images.githubusercontent.com/85926257/198992311-707a09fb-3ad7-44c0-af05-ccef2259523c.png">
 
-#### 📌 주문 내역
+#### 📌 주문 목록
 - [UPDATE] 🗓 22.11.05
-<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/203933004-bf2e5d10-8861-4b01-9a2b-7037774ef1c6.png">
+<img width="2032" alt="image" src="https://user-images.githubusercontent.com/85926257/204483817-c1b00da1-8392-4a1b-9d4d-cc88b0f8a4c9.png">
