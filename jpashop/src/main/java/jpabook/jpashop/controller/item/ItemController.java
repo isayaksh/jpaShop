@@ -1,14 +1,14 @@
 package jpabook.jpashop.controller.item;
 
 import jpabook.jpashop.controller.item.BookForm;
-import jpabook.jpashop.domain.item.Album;
-import jpabook.jpashop.domain.item.Book;
-import jpabook.jpashop.domain.item.Item;
-import jpabook.jpashop.domain.item.Movie;
+import jpabook.jpashop.domain.item.*;
 import jpabook.jpashop.exception.NotCorrespondingItemException;
 import jpabook.jpashop.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,8 +55,8 @@ public class ItemController {
     }
 
     @GetMapping("/items")
-    public String list(Model model){
-        model.addAttribute("items",itemService.findItems());
+    public String items(@PageableDefault(size = 8) Pageable pageable, Model model){
+        model.addAttribute("items",itemService.findAll(pageable));
         return "items/itemList";
     }
 
@@ -71,9 +71,7 @@ public class ItemController {
 
     @PostMapping("items/{itemId}/edit")
     public String updateItem(@PathVariable Long itemId, @ModelAttribute("form") BookForm form) {
-
         itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
-
         return "redirect:/items";
     }
 }

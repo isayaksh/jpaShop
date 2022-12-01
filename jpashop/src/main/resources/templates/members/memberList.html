@@ -6,7 +6,7 @@
   <div th:replace="fragments/bodyHeader :: bodyHeader" />
   <H1>MEMBER LIST</H1>
   <br/>
-  <div style="text-align: center" >
+
     <table class="table">
       <thead>
       <tr class="table-secondary">
@@ -31,7 +31,6 @@
         <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{members(page=${i-1})}"></a>
       </th:block>
     </div>
-  </div>
   <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->
 </body>

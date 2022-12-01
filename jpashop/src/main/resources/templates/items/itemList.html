@@ -6,14 +6,15 @@
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <H1>ITEM LIST</H1>
     <br/>
+
     <div>
-        <table class="table table-striped">
+        <table class="table">
             <thead>
-            <tr>
-                <th>#</th>
-                <th>상품명</th>
-                <th>가격</th>
-                <th>재고수량</th>
+            <tr class="table-secondary">
+                <th class="col-1">#</th>
+                <th class="col-3">상품명</th>
+                <th class="col-3">가격</th>
+                <th class="col-3">재고수량</th>
                 <th></th>
             </tr>
             </thead>
@@ -25,11 +26,16 @@
                 <td th:text="${item.stockQuantity}"></td>
                 <td>
                     <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
-                       class="btn btn-primary" role="button">수정</a>
+                       class="btn btn-outline-danger btn-sm" role="button">수정</a>
                 </td>
             </tr>
             </tbody>
         </table>
+    </div>
+    <div class="btn-group me-2" role="group" aria-label="First group">
+        <th:block th:each = "i : ${#numbers.sequence(1,items.totalPages)}">
+            <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items(page=${i-1})}"></a>
+        </th:block>
     </div>
     <div th:replace="fragments/footer :: footer"/>
 </div> <!-- /container -->
