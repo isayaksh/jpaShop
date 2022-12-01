@@ -19,9 +19,9 @@ public class InitDb {
 
     @PostConstruct
     public void init(){
-        initService.dbInit1();
+        initService.createAdmin();
         initService.dbInit2();
-        initService.dbInit3();
+        initService.createMember();
         initService.dbInit4();
     }
 
@@ -31,22 +31,10 @@ public class InitDb {
     static class InitService {
 
         private final EntityManager em;
-        public void dbInit1(){
-            Address address1 = Address.createAddress("수원", "행궁동", "23541");
-            Member member1 = Member.createMember("ID1","PASSWORD1","userA", address1);
+        public void createAdmin(){
+            Address address1 = Address.createAddress("화성시", "동탄 순환대로 10길", "23541");
+            Member member1 = Member.createMember("ADMIN","PASSWORD","운영자", address1);
             em.persist(member1);
-            Book book1 = Book.createBook("JPA1 BOOK", 38700, 100, "김영한", "12321");
-            em.persist(book1);
-            Book book2 = Book.createBook("JPA2 BOOK", 28700, 200, "김영한", "23451");
-            em.persist(book2);
-
-            /** order 만 persist 하는 이유! **/
-            /** cascade 로 엮어져 있기 때문! **/
-            OrderItem orderItem1 = OrderItem.createOrderItem(book1, book1.getPrice(), 1);
-            OrderItem orderItem2 = OrderItem.createOrderItem(book2, book2.getPrice(), 2);
-            Delivery delivery1 = Delivery.createDelivery(address1);
-            Order order = Order.createOrder(member1, delivery1, orderItem1, orderItem2);
-            em.persist(order);
         }
 
         public void dbInit2(){
@@ -67,7 +55,8 @@ public class InitDb {
             em.persist(order);
         }
 
-        public void dbInit3(){
+        public void createMember(){
+            String password = "password";
             Member member1 = Member.createMember("email1@gmail.com", "password", "userA", Address.createAddress("cityA", "streetA", "111111"));
             em.persist(member1);
             Member member2 = Member.createMember("email2@gmail.com", "password", "userB", Address.createAddress("cityB", "streetB", "111111"));

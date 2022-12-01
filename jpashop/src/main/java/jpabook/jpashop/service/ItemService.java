@@ -1,9 +1,11 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.ItemDto;
 import jpabook.jpashop.exception.NotCorrespondingItemException;
 import jpabook.jpashop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
@@ -37,5 +39,9 @@ public class ItemService {
         Optional<Item> findItem = itemRepository.findById(itemId);
         Item item = findItem.orElseThrow(() -> new NotCorrespondingItemException("해당하는 아이템이 존재하지 않습니다."));
         item.updateItem(name,price,stockQuantity);
+    }
+
+    public Page<ItemDto> findAll(Pageable pageable){
+        return itemRepository.findAll(pageable).map(p -> new ItemDto(p));
     }
 }
