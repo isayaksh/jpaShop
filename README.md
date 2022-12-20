@@ -17,6 +17,7 @@
 |Item에 누락된 Album, Movie 기능 구현|22.11.25 ~ 22.11.25|[상품 종류 별 상품 등록 기능 개선](https://velog.io/@isayaksh/Spring-%EC%83%81%ED%92%88-%EC%A2%85%EB%A5%98-%EB%B3%84-%EC%83%81%ED%92%88-%EB%93%B1%EB%A1%9D-%EA%B8%B0%EB%8A%A5-%EA%B0%9C%EC%84%A0)|
 |HTML 페이지 중복 제거|22.11.28 ~ 22.11.29|[상품 등록 페이지 중복 제거](https://velog.io/@isayaksh/Spring-HTML%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%83%81%ED%92%88-%EB%93%B1%EB%A1%9D-%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0)|
 |상품 주문 기능 개선|22.11.29 ~ 22.12.01|[Session을 활용한 상품 주문 기능 개선](https://velog.io/@isayaksh/Spring-Session%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%83%81%ED%92%88-%EC%A3%BC%EB%AC%B8-%EA%B8%B0%EB%8A%A5-%EA%B0%9C%EC%84%A0)|
+|`Entity` 필드 수정시 발생하는 업데이트 쿼리 개선|22.12.19 ~ 22.12.19|[Update 쿼리 개선](https://velog.io/@isayaksh/JPA-Update-%EC%BF%BC%EB%A6%AC-%EA%B0%9C%EC%84%A0)|
 
 #### 🧷 각 페이지 별 핵심 비지니스 로직
 
