@@ -1,8 +1,10 @@
 package jpabook.jpashop;
 
 import jpabook.jpashop.domain.*;
+import jpabook.jpashop.domain.item.Album;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.item.Movie;
 import jpabook.jpashop.domain.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -10,6 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Component
 @RequiredArgsConstructor
@@ -22,7 +27,7 @@ public class InitDb {
         initService.createAdmin();
         initService.dbInit2();
         initService.createMember();
-        initService.dbInit4();
+        initService.createItem();
     }
 
     @Component
@@ -56,68 +61,62 @@ public class InitDb {
         }
 
         public void createMember(){
-            String password = "password";
-            Member member1 = Member.createMember("email1@gmail.com", "password", "userA", Address.createAddress("cityA", "streetA", "111111"));
-            em.persist(member1);
-            Member member2 = Member.createMember("email2@gmail.com", "password", "userB", Address.createAddress("cityB", "streetB", "111111"));
-            em.persist(member2);
-            Member member3 = Member.createMember("email3@gmail.com", "password", "userC", Address.createAddress("cityC", "streetC", "111111"));
-            em.persist(member3);
-            Member member4 = Member.createMember("email4@gmail.com", "password", "userD", Address.createAddress("cityD", "streetD", "111111"));
-            em.persist(member4);
-            Member member5 = Member.createMember("email5@gmail.com", "password", "userE", Address.createAddress("cityE", "streetE", "111111"));
-            em.persist(member5);
-            Member member6 = Member.createMember("email6@gmail.com", "password", "userF", Address.createAddress("cityF", "streetF", "111111"));
-            em.persist(member6);
-            Member member7 = Member.createMember("email7@gmail.com", "password", "userG", Address.createAddress("cityG", "streetG", "111111"));
-            em.persist(member7);
-            Member member8 = Member.createMember("email8@gmail.com", "password", "userH", Address.createAddress("cityH", "streetH", "111111"));
-            em.persist(member8);
-            Member member9 = Member.createMember("email9@gmail.com", "password", "userI", Address.createAddress("cityI", "streetI", "111111"));
-            em.persist(member9);
-            Member member10 = Member.createMember("email01@gmail.com", "password", "userJ", Address.createAddress("cityJ", "streetJ", "111111"));
-            em.persist(member10);
-            Member member11 = Member.createMember("email11@gmail.com", "password", "userK", Address.createAddress("cityK", "streetK", "111111"));
-            em.persist(member11);
-            Member member12 = Member.createMember("email12@gmail.com", "password", "userL", Address.createAddress("cityL", "streetL", "111111"));
-            em.persist(member12);
-            Member member13 = Member.createMember("email13@gmail.com", "password", "userM", Address.createAddress("cityM", "streetM", "111111"));
-            em.persist(member13);
-            Member member14 = Member.createMember("email14@gmail.com", "password", "userN", Address.createAddress("cityN", "streetN", "111111"));
-            em.persist(member14);
-            Member member15 = Member.createMember("email15@gmail.com", "password", "userO", Address.createAddress("cityO", "streetO", "111111"));
-            em.persist(member15);
-            Member member16 = Member.createMember("email16@gmail.com", "password", "userP", Address.createAddress("cityP", "streetP", "111111"));
-            em.persist(member16);
-            Member member17 = Member.createMember("email17@gmail.com", "password", "userQ", Address.createAddress("cityQ", "streetQ", "111111"));
-            em.persist(member17);
-            Member member18 = Member.createMember("email18@gmail.com", "password", "userR", Address.createAddress("cityR", "streetR", "111111"));
-            em.persist(member18);
-            Member member19 = Member.createMember("email19@gmail.com", "password", "userS", Address.createAddress("cityS", "streetS", "111111"));
-            em.persist(member19);
-            Member member20 = Member.createMember("email20@gmail.com", "password", "userT", Address.createAddress("cityT", "streetT", "111111"));
-            em.persist(member20);
-            Member member21 = Member.createMember("email21@gmail.com", "password", "userU", Address.createAddress("cityU", "streetU", "111111"));
-            em.persist(member21);
-            Member member22 = Member.createMember("email22@gmail.com", "password", "userV", Address.createAddress("cityV", "streetV", "111111"));
-            em.persist(member22);
-            Member member23 = Member.createMember("email23@gmail.com", "password", "userW", Address.createAddress("cityW", "streetW", "111111"));
-            em.persist(member23);
-            Member member24 = Member.createMember("email24@gmail.com", "password", "userX", Address.createAddress("cityX", "streetX", "111111"));
-            em.persist(member24);
-            Member member25 = Member.createMember("email25@gmail.com", "password", "userY", Address.createAddress("cityY", "streetY", "111111"));
-            em.persist(member25);
-            Member member26 = Member.createMember("email26@gmail.com", "password", "userZ", Address.createAddress("cityZ", "streetZ", "111111"));
-            em.persist(member26);
+            // 무작위 문자열 ID를 생성하기 위한 값
+            int leftLimit = 97; // letter 'a'
+            int rightLimit = 122; // letter 'z'
+            int targetStringLength = 5;
+            Random random = new Random();
 
+            // 비밀번호 값
+            String password = "password";
+
+            String[] name1 = {"김", "이", "박", "최", "정", "강"};
+            String[] name2 = {"상", "시", "창", "재", "민", "승"};
+            String[] name3 = {"현", "영", "준", "용", "아", "구"};
+            // 도시 값
+            String[] cities = {"서울시", "부산시", "인천시", "대구시", "대전시", "광주시", "울산시", "세종시"};
+            // 주소 값
+            String[] streets = {"송죽동", "정자동", "인계동", "메탄동", "세류동", "고색동"};
+
+            for(int i = 0; i < 30; i++){
+                String id = random.ints(leftLimit, rightLimit + 1)
+                        .limit(targetStringLength)
+                        .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                        .toString();
+                String name = name1[(int)(Math.random()*5)] + name2[(int)(Math.random()*5)] + name3[(int)(Math.random()*5)];
+                String city = cities[(int)(Math.random()*7)];
+                String street = streets[(int)(Math.random()*5)];
+                String zipcode = random.ints(48, 57)
+                        .limit(targetStringLength)
+                        .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                        .toString();
+                Member member = Member.createMember(id + "@gmail.com", password, name, Address.createAddress(city,street,zipcode));
+                em.persist(member);
+            }
         }
 
-        public void dbInit4(){
-            for(int i = 1; i <28; i++){
+        public void createItem(){
+            int stockQuantity = 100;
+            String artist = "artist";
+            String etc = "etc";
+            String author = "author";
+            String isbn = "isbn";
+            String actor = "actor";
+            String director = "director";
+
+            for(int i = 1; i <30; i++){
                 int price = 10000 + (int)(Math.random()*20000);
-                String isbn = Integer.toString(10000 + (int)(Math.random()*90000));
-                Book book = Book.createBook("Book" + i, price, 100, "author" + i, isbn);
-                em.persist(book);
+                int j = (int)(Math.random()*3);
+                if(j == 0){
+                    Book book = Book.createBook("Book" + i, price, stockQuantity, author + i, isbn);
+                    em.persist(book);
+                } else if(j==1){
+                    Album album = Album.createAlbum("Album" + i, price, stockQuantity, artist + i, etc);
+                    em.persist(album);
+                } else {
+                    Movie movie = Movie.createMovie("Movie" + i, price, stockQuantity, director + i, actor);
+                    em.persist(movie);
+                }
             }
 
         }

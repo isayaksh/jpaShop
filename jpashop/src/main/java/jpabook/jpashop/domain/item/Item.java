@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain.item;
 
+import jpabook.jpashop.domain.BaseEntity;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Inheritance(strategy = SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
 @NoArgsConstructor(access = PROTECTED)
-public abstract class Item {
+public abstract class Item extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "item_id")

@@ -1,5 +1,6 @@
 package jpabook.jpashop.service;
 
+import jpabook.jpashop.controller.SessionConst;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.member.MemberDto;
 import jpabook.jpashop.repository.member.MemberRepository;
@@ -7,12 +8,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,4 +69,11 @@ public class MemberService {
         return memberRepository.findAll(pageable).map(m -> new MemberDto(m));
     }
 
+
+    @Transactional
+    public void updateMember(Long id, String email, String password, String username, String city, String street, String zipcode, HttpServletRequest request) {
+        Optional<Member> findMember = memberRepository.findById(id);
+        Member member = findMember.orElseThrow(() -> new IllegalStateException("해당하는 멤버가 존재하지 않습니다."));
+        member.update(email,password,username,city,street,zipcode);
+    }
 }
