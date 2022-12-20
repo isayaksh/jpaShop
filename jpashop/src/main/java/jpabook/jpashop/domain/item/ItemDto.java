@@ -9,6 +9,7 @@ public class ItemDto {
     private int price;
     private int stockQuantity;
 
+
     public ItemDto(Item item) {
         this.id = item.getId();
         this.name = item.getName();

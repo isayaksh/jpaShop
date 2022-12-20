@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +56,7 @@ public class ItemController {
     }
 
     @GetMapping("/items")
-    public String items(@PageableDefault(size = 8) Pageable pageable, Model model){
+    public String items(@PageableDefault(size = 8, sort = "createdDate", direction = Sort.Direction.DESC) Pageable pageable, Model model){
         model.addAttribute("items",itemService.findAll(pageable));
         return "items/itemList";
     }

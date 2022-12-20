@@ -2,10 +2,12 @@ package jpabook.jpashop.domain.member;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpabook.jpashop.domain.Address;
+import jpabook.jpashop.domain.BaseEntity;
 import jpabook.jpashop.domain.Order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,8 +18,8 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@Slf4j
-public class Member {
+@DynamicUpdate // [add] 변경된 필드의 값만 업데이트
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "member_id")
@@ -49,5 +51,12 @@ public class Member {
     }
     public boolean checkPassword(String password){
         return this.password.equals(password);
+    }
+
+    public void update(String email, String password, String username, String city, String street, String zipcode){
+        this.email = email;
+        this.password = password;
+        this.username = username;
+        this.address.update(city,street,zipcode);
     }
 }

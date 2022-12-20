@@ -1,5 +1,7 @@
 package jpabook.jpashop.controller.member;
 
+import jpabook.jpashop.controller.SessionConst;
+import jpabook.jpashop.controller.login.LoginForm;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.member.MemberDto;
@@ -13,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -33,7 +37,7 @@ public class MemberController {
             return "members/createMemberForm";
         }
         Address address = Address.createAddress(form.getCity(), form.getStreet(), form.getZipcode());
-        Member member = Member.createMember(form.getEmail(), form.getPassword(), form.getName(),address);
+        Member member = Member.createMember(form.getEmail(), form.getPassword(), form.getUsername(),address);
         memberService.join(member);
         return "redirect:/";
     }
@@ -45,4 +49,25 @@ public class MemberController {
         return "/members/memberList";
     }
 
+    @GetMapping("/member/info")
+    public String updateMemberForm(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Long memberId, Model model){
+        Member findMember = memberService.findOne(memberId);
+        MemberForm form = MemberForm.createMemberForm(findMember);
+        model.addAttribute("memberForm", form);
+        return "members/memberInfo";
+    }
+
+    @PostMapping("/member/edit")
+    public String updateMember(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Member member,
+                               @Valid @ModelAttribute("memberForm")MemberForm form,
+                               BindingResult bindingResult,
+                               HttpServletRequest request){
+        // MemberForm 에 email 혹은 password 의 값이 존재하지 않을 때
+        if (bindingResult.hasErrors()) {
+            return "/members/memberInfo";
+        }
+
+        memberService.updateMember(member.getId(), form.getEmail(), form.getPassword(), form.getUsername(), form.getCity(), form.getStreet(), form.getZipcode(), request);
+        return "redirect:/member/info";
+    }
 }
