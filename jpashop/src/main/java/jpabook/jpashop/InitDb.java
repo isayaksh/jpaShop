@@ -6,6 +6,7 @@ import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.item.Movie;
 import jpabook.jpashop.domain.member.Member;
+import jpabook.jpashop.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,7 @@ public class InitDb {
     static class InitService {
 
         private final EntityManager em;
+        private final MemberRepository memberRepository;
         public void createAdmin(){
             Address address1 = Address.createAddress("화성시", "동탄 순환대로 10길", "23541");
             Member member1 = Member.createMember("ADMIN","PASSWORD","운영자", address1);
@@ -46,9 +48,9 @@ public class InitDb {
             Address address1 = Address.createAddress("동탄", "동탄 순환대로", "10988");
             Member member1 = Member.createMember("ID2","PASSWORD2","userB", address1);
             em.persist(member1);
-            Book book1 = Book.createBook("SPRING1 BOOK", 15000, 100, "김영한", "54321");
+            Book book1 = Book.createBook(member1, "SPRING1 BOOK", 15000, 100, "김영한", "54321");
             em.persist(book1);
-            Book book2 = Book.createBook("SPRING2 BOOK", 25000, 200, "김영한", "12345");
+            Book book2 = Book.createBook(member1, "SPRING2 BOOK", 25000, 200, "김영한", "12345");
             em.persist(book2);
 
             /** order 만 persist 하는 이유! **/
@@ -104,17 +106,19 @@ public class InitDb {
             String actor = "actor";
             String director = "director";
 
+            List<Member> members = memberRepository.findAll();
             for(int i = 1; i <30; i++){
                 int price = 10000 + (int)(Math.random()*20000);
                 int j = (int)(Math.random()*3);
+                int k = (int)(Math.random()*3);
                 if(j == 0){
-                    Book book = Book.createBook("Book" + i, price, stockQuantity, author + i, isbn);
+                    Book book = Book.createBook(members.get(k), "Book" + i, price, stockQuantity, author + i, isbn);
                     em.persist(book);
                 } else if(j==1){
-                    Album album = Album.createAlbum("Album" + i, price, stockQuantity, artist + i, etc);
+                    Album album = Album.createAlbum(members.get(k),"Album" + i, price, stockQuantity, artist + i, etc);
                     em.persist(album);
                 } else {
-                    Movie movie = Movie.createMovie("Movie" + i, price, stockQuantity, director + i, actor);
+                    Movie movie = Movie.createMovie(members.get(k), "Movie" + i, price, stockQuantity, director + i, actor);
                     em.persist(movie);
                 }
             }

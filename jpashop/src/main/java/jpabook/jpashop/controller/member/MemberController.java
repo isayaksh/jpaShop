@@ -58,7 +58,7 @@ public class MemberController {
     }
 
     @PostMapping("/member/edit")
-    public String updateMember(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Member member,
+    public String updateMember(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Long memberId,
                                @Valid @ModelAttribute("memberForm")MemberForm form,
                                BindingResult bindingResult,
                                HttpServletRequest request){
@@ -67,7 +67,7 @@ public class MemberController {
             return "/members/memberInfo";
         }
 
-        memberService.updateMember(member.getId(), form.getEmail(), form.getPassword(), form.getUsername(), form.getCity(), form.getStreet(), form.getZipcode(), request);
+        memberService.updateMember(memberId, form.getEmail(), form.getPassword(), form.getUsername(), form.getCity(), form.getStreet(), form.getZipcode(), request);
         return "redirect:/member/info";
     }
 }

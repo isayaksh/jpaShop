@@ -26,7 +26,8 @@
                 <td th:text="${item.stockQuantity}"></td>
                 <td>
                     <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
-                       class="btn btn-outline-danger btn-sm" role="button">수정</a>
+                       class="btn btn-outline-danger btn-sm" role="button"
+                       th:if="${item.memberId == memberId}">수정</a>
                 </td>
             </tr>
             </tbody>
