@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.BaseEntity;
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.item.Item;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,10 @@ public class Member extends BaseEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "member")
+    private List<Item> items = new ArrayList<>();
 
     public static Member createMember(String email, String password, String name, Address address){
         Member member = new Member();

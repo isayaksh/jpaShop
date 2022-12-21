@@ -2,36 +2,66 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header" />
 <body>
-<div class="container">
+<div class="container col-5" style="text-align:center">
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <H1>UPDATE ITEM</H1>
+    <br/>
+
     <form th:object="${form}" method="post">
         <!-- id -->
         <input type="hidden" th:field="*{id}" />
-        <div class="form-group">
-            <label th:for="name">상품명</label>
-            <input type="text" th:field="*{name}" class="form-control"
-                   placeholder="이름을 입력하세요" />
+
+        <div class="form-floating mb-3">
+            <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요">
+            <label>상품명</label>
         </div>
-        <div class="form-group">
-            <label th:for="price">가격</label>
-            <input type="number" th:field="*{price}" class="form-control"
-                   placeholder="가격을 입력하세요" />
+
+        <div class="form-floating mb-3">
+            <input type="number" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
+            <label>가격</label>
         </div>
-        <div class="form-group">
-            <label th:for="stockQuantity">수량</label>
-            <input type="number" th:field="*{stockQuantity}" class="form-control" placeholder="수량을 입력하세요" />
+
+        <div class="form-floating mb-3">
+            <input type="number" th:field="*{stockQuantity}" class="form-control" placeholder="수량을 입력하세요">
+            <label>수량</label>
         </div>
-        <div class="form-group">
-            <label th:for="author">저자</label>
-            <input type="text" th:field="*{author}" class="form-control"
-                   placeholder="저자를 입력하세요" />
+
+        <div class="form-floating mb-3" th:if="${form.dtype} == 'A'">
+            <input type="text" th:field="*{artist}" class="form-control" placeholder="아티스트를 입력하세요">
+            <label>아티스트</label>
         </div>
-        <div class="form-group">
-            <label th:for="isbn">ISBN</label>
-            <input type="text" th:field="*{isbn}" class="form-control"
-                   placeholder="ISBN을 입력하세요" />
+
+        <div class="form-floating mb-3" th:if="${form.dtype} == 'A'">
+            <input type="text" th:field="*{etc}" class="form-control" placeholder="기타 정보를 입력하세요">
+            <label>ETC</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        <div class="form-floating mb-3" th:if="${form.dtype} == 'B'">
+            <input type="text" th:field="*{author}" class="form-control" placeholder="저자를 입력하세요">
+            <label>저자</label>
+        </div>
+
+        <div class="form-floating mb-3" th:if="${form.dtype} == 'B'">
+            <input type="text" th:field="*{isbn}" class="form-control" placeholder="ISBN을 입력하세요">
+            <label>ISBN</label>
+        </div>
+
+
+        <div class="form-floating mb-3" th:if="${form.dtype} == 'M'">
+            <input type="text" th:field="*{director}" class="form-control" placeholder="감독 입력하세요">
+            <label>감독</label>
+        </div>
+
+        <div class="form-floating mb-3" th:if="${form.dtype} == 'M'">
+            <input type="text" th:field="*{actor}" class="form-control" placeholder="배우를 입력하세요">
+            <label>배우</label>
+        </div>
+
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary" type="submit">상품 수정</button>
+        </div>
     </form>
     <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->

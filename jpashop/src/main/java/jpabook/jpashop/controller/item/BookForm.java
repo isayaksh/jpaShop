@@ -4,9 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class BookForm {
+public class BookForm{
 
     private Long id;
+    private Long memberId;
+
+    private String dtype;
 
     private String name;
     private int price;
@@ -15,9 +18,10 @@ public class BookForm {
     private String author;
     private String isbn;
 
-    public static BookForm createBookForm(Long id, String name, int price, int stockQuantity, String author, String isbn){
+    public static BookForm createBookForm(Long id, Long memberId, String name, int price, int stockQuantity, String author, String isbn){
         BookForm form = new BookForm();
         form.id = id;
+        form.memberId = memberId;
         form.name = name;
         form.price = price;
         form.stockQuantity = stockQuantity;
@@ -25,19 +29,7 @@ public class BookForm {
         form.isbn = isbn;
         return form;
     }
-
     public BookForm() {
-    }
-
-    @Override
-    public String toString() {
-        return "BookForm{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", stockQuantity=" + stockQuantity +
-                ", author='" + author + '\'' +
-                ", isbn='" + isbn + '\'' +
-                '}';
+        this.dtype = "B";
     }
 }
