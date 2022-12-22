@@ -44,6 +44,7 @@ public class MemberController {
 
     @GetMapping("/members")
     public String list(@PageableDefault(size = 8)Pageable pageable, Model model){
+        pageable.getSort();
         Page<MemberDto> page = memberService.findAll(pageable);
         model.addAttribute("members", page);
         return "/members/memberList";

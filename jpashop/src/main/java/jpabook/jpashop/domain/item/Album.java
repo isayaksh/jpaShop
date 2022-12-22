@@ -15,7 +15,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Entity
 @Getter
-@DiscriminatorValue("A")
+@DiscriminatorValue("ALBUM")
 @NoArgsConstructor(access = PROTECTED)
 @DynamicUpdate // [add] 변경된 필드의 값만 업데이트
 public class Album extends Item{

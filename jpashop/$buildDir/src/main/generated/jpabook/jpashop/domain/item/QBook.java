@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,36 +18,67 @@ public class QBook extends EntityPathBase<Book> {
 
     private static final long serialVersionUID = -1091535679L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QBook book = new QBook("book");
 
-    public final QItem _super = new QItem(this);
+    public final QItem _super;
 
     public final StringPath author = createString("author");
 
     //inherited
-    public final NumberPath<Long> id = _super.id;
+    public final DateTimePath<java.time.LocalDateTime> createdDate;
+
+    //inherited
+    public final StringPath dtype;
+
+    //inherited
+    public final NumberPath<Long> id;
 
     public final StringPath isbn = createString("isbn");
 
     //inherited
-    public final StringPath name = _super.name;
+    public final DateTimePath<java.time.LocalDateTime> lastModified;
+
+    // inherited
+    public final jpabook.jpashop.domain.member.QMember member;
 
     //inherited
-    public final NumberPath<Integer> price = _super.price;
+    public final StringPath name;
 
     //inherited
-    public final NumberPath<Integer> stockQuantity = _super.stockQuantity;
+    public final NumberPath<Integer> price;
+
+    //inherited
+    public final NumberPath<Integer> stockQuantity;
 
     public QBook(String variable) {
-        super(Book.class, forVariable(variable));
+        this(Book.class, forVariable(variable), INITS);
     }
 
     public QBook(Path<? extends Book> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QBook(PathMetadata metadata) {
-        super(Book.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QBook(PathMetadata metadata, PathInits inits) {
+        this(Book.class, metadata, inits);
+    }
+
+    public QBook(Class<? extends Book> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this._super = new QItem(type, metadata, inits);
+        this.createdDate = _super.createdDate;
+        this.dtype = _super.dtype;
+        this.id = _super.id;
+        this.lastModified = _super.lastModified;
+        this.member = _super.member;
+        this.name = _super.name;
+        this.price = _super.price;
+        this.stockQuantity = _super.stockQuantity;
     }
 
 }

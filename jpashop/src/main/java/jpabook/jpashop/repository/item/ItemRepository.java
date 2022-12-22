@@ -1,4 +1,4 @@
-package jpabook.jpashop.repository;
+package jpabook.jpashop.repository.item;
 
 import jpabook.jpashop.domain.item.Item;
 import org.springframework.data.domain.Page;
@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, Long> ,ItemRepositoryJpql{
 
 }

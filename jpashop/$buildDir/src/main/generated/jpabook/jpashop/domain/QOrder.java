@@ -26,7 +26,7 @@ public class QOrder extends EntityPathBase<Order> {
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final QMember member;
+    public final jpabook.jpashop.domain.member.QMember member;
 
     public final DateTimePath<java.time.LocalDateTime> orderDate = createDateTime("orderDate", java.time.LocalDateTime.class);
 
@@ -53,7 +53,7 @@ public class QOrder extends EntityPathBase<Order> {
     public QOrder(Class<? extends Order> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.delivery = inits.isInitialized("delivery") ? new QDelivery(forProperty("delivery"), inits.get("delivery")) : null;
-        this.member = inits.isInitialized("member") ? new QMember(forProperty("member"), inits.get("member")) : null;
+        this.member = inits.isInitialized("member") ? new jpabook.jpashop.domain.member.QMember(forProperty("member"), inits.get("member")) : null;
     }
 
 }

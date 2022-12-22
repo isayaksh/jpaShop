@@ -1,4 +1,4 @@
-package jpabook.jpashop.domain;
+package jpabook.jpashop.domain.member;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -8,7 +8,6 @@ import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
-import jpabook.jpashop.domain.member.Member;
 
 
 /**
@@ -17,19 +16,29 @@ import jpabook.jpashop.domain.member.Member;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QMember extends EntityPathBase<Member> {
 
-    private static final long serialVersionUID = -571917283L;
+    private static final long serialVersionUID = -1075558965L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
     public static final QMember member = new QMember("member1");
 
-    public final QAddress address;
+    public final jpabook.jpashop.domain.QBaseEntity _super = new jpabook.jpashop.domain.QBaseEntity(this);
+
+    public final jpabook.jpashop.domain.QAddress address;
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     public final StringPath email = createString("email");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final ListPath<Order, QOrder> orders = this.<Order, QOrder>createList("orders", Order.class, QOrder.class, PathInits.DIRECT2);
+    public final ListPath<jpabook.jpashop.domain.item.Item, jpabook.jpashop.domain.item.QItem> items = this.<jpabook.jpashop.domain.item.Item, jpabook.jpashop.domain.item.QItem>createList("items", jpabook.jpashop.domain.item.Item.class, jpabook.jpashop.domain.item.QItem.class, PathInits.DIRECT2);
+
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> lastModified = _super.lastModified;
+
+    public final ListPath<jpabook.jpashop.domain.Order, jpabook.jpashop.domain.QOrder> orders = this.<jpabook.jpashop.domain.Order, jpabook.jpashop.domain.QOrder>createList("orders", jpabook.jpashop.domain.Order.class, jpabook.jpashop.domain.QOrder.class, PathInits.DIRECT2);
 
     public final StringPath password = createString("password");
 
@@ -53,7 +62,7 @@ public class QMember extends EntityPathBase<Member> {
 
     public QMember(Class<? extends Member> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.address = inits.isInitialized("address") ? new QAddress(forProperty("address")) : null;
+        this.address = inits.isInitialized("address") ? new jpabook.jpashop.domain.QAddress(forProperty("address")) : null;
     }
 
 }

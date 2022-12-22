@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Entity
 @Getter
-@DiscriminatorValue("M")
+@DiscriminatorValue("MOVIE")
 @NoArgsConstructor(access = PROTECTED)
 @DynamicUpdate // [add] 변경된 필드의 값만 업데이트
 public class Movie extends Item{
