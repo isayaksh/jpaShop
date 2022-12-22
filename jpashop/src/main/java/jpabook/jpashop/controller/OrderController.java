@@ -35,11 +35,11 @@ public class OrderController {
     }
 
     @PostMapping("/order")
-    public String order(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Member member,
+    public String order(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Long memberId,
                         @RequestParam("itemId") Long itemId,
                         @RequestParam("count") int count){
 
-        orderService.order(member.getId(), itemId, count);
+        orderService.order(memberId, itemId, count);
         return "redirect:/orders";
     }
 

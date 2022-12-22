@@ -8,6 +8,30 @@
     <br/>
 
     <div>
+        <div >
+            <form th:object="${itemSearch}" class="row g-3">
+                <div class="form-floating mb-3 col-sm-5">
+                    <input type="text" th:field="*{itemName}" class="form-control" placeholder="상품명"/>
+                    <label>상품명</label>
+                </div>
+
+                <div class="form-floating col-sm-5">
+                    <select th:field="*{itemType}" class="form-select" id="floatingSelect">
+                        <option value="">NONE</option>
+                        <option th:each="type : ${T(jpabook.jpashop.domain.ItemType).values()}"
+                                th:value="${type}"
+                                th:text="${type}">option
+                        </option>
+                    </select>
+                    <label for="floatingSelect">주문 상태</label>
+                </div>
+
+                <button type="submit" class="btn btn-secondary mb-3 col-sm-2">검색</button>
+            </form>
+        </div>
+        <hr/>
+
+    <div>
         <table class="table">
             <thead>
             <tr class="table-secondary">
@@ -35,7 +59,7 @@
     </div>
     <div class="btn-group me-2" role="group" aria-label="First group">
         <th:block th:each = "i : ${#numbers.sequence(1,items.totalPages)}">
-            <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items(page=${i-1})}"></a>
+            <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items(page=${i-1}, itemName=${itemSearch.itemName}, itemType=${itemSearch.itemType})}"></a>
         </th:block>
     </div>
     <div th:replace="fragments/footer :: footer"/>

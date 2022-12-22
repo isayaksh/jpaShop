@@ -16,7 +16,9 @@
       </h2>
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <form th:action="@{/items/new/album}" th:object="${albumForm}" method="post">
+          <form th:action="@{/items/new/album}" th:object="${form}" method="post">
+
+            <input type="hidden" th:field="*{memberId}" />
 
             <div class="form-floating mb-3">
               <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요">
@@ -58,7 +60,9 @@
       </h2>
       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <form th:action="@{/items/new/book}" th:object="${bookForm}" method="post">
+          <form th:action="@{/items/new/book}" th:object="${form}" method="post">
+
+            <input type="hidden" th:field="*{memberId}" />
 
             <div class="form-floating mb-3">
               <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요">
@@ -100,7 +104,9 @@
       </h2>
       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <form th:action="@{/items/new/movie}" th:object="${movieForm}" method="post">
+          <form th:action="@{/items/new/movie}" th:object="${form}" method="post">
+
+            <input type="hidden" th:field="*{memberId}" />
 
             <div class="form-floating mb-3">
               <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요">

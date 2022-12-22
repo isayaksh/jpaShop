@@ -5,7 +5,7 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.exception.NotCorrespondingItemException;
 import jpabook.jpashop.exception.NotCorrespondingOrderException;
-import jpabook.jpashop.repository.ItemRepository;
+import jpabook.jpashop.repository.item.ItemRepository;
 import jpabook.jpashop.repository.member.MemberRepository;
 import jpabook.jpashop.repository.order.OrderRepository;
 import jpabook.jpashop.repository.order.OrderSearch;

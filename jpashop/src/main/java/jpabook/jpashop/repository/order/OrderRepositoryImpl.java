@@ -4,13 +4,15 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderStatus;
-import jpabook.jpashop.domain.QMember;
 import jpabook.jpashop.domain.QOrder;
+import jpabook.jpashop.domain.member.QMember;
 import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+
+import static jpabook.jpashop.domain.QOrder.order;
 
 @RequiredArgsConstructor
 public class OrderRepositoryImpl implements OrderRepositoryJpql{
@@ -25,7 +27,7 @@ public class OrderRepositoryImpl implements OrderRepositoryJpql{
         QMember member = QMember.member;
 
         return query
-                .select(order)
+                .select(QOrder.order)
                 .from(order)
                 .join(order.member, member)
                 .where(statusEq(orderSearch.getOrderStatus()), nameLike(orderSearch.getMemberName()))
@@ -44,6 +46,6 @@ public class OrderRepositoryImpl implements OrderRepositoryJpql{
         if(statusCond == null){
             return null;
         }
-        return QOrder.order.status.eq(statusCond);
+        return order.status.eq(statusCond);
     }
 }
