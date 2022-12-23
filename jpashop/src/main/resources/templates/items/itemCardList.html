@@ -8,37 +8,66 @@
   <br/>
 
   <div>
-    <table class="table">
-      <thead>
-      <tr class="table-secondary">
-        <th class="col-1">#</th>
-        <th class="col-3">상품명</th>
-        <th class="col-3">가격</th>
-        <th class="col-3">재고수량</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="item : ${items}">
-        <td th:text="${item.id}"></td>
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.price}"></td>
-        <td th:text="${item.stockQuantity}"></td>
-        <td>
-          <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
-             class="btn btn-outline-danger btn-sm" role="button"
-             th:if="${item.memberId == memberId}">수정</a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="btn-group me-2" role="group" aria-label="First group">
-    <th:block th:each = "i : ${#numbers.sequence(1,items.totalPages)}">
-      <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items(page=${i-1})}"></a>
-    </th:block>
-  </div>
-  <div th:replace="fragments/footer :: footer"/>
-</div> <!-- /container -->
+    <div >
+      <form th:object="${itemSearch}" class="row g-3">
+        <div class="form-floating mb-3 col-sm-5">
+          <input type="text" th:field="*{itemName}" class="form-control" placeholder="상품명"/>
+          <label>상품명</label>
+        </div>
+
+        <div class="form-floating col-sm-5">
+          <select th:field="*{itemType}" class="form-select" id="floatingSelect">
+            <option value="">NONE</option>
+            <option th:each="type : ${T(jpabook.jpashop.domain.ItemType).values()}"
+                    th:value="${type}"
+                    th:text="${type}">option
+            </option>
+          </select>
+          <label for="floatingSelect">주문 상태</label>
+        </div>
+
+        <button type="submit" class="btn btn-secondary mb-3 col-sm-2">검색</button>
+      </form>
+    </div>
+    <hr/>
+
+
+    <!-- 아이템 목록 -->
+    <div>
+      <!-- 1행 -->
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <th:block th:each="item : ${items}">
+          <div class="col">
+            <div class="card h-100">
+
+              <span style="height:50%">
+                <img th:if="${item.dtype == 'ALBUM'}" src="resources/img/album.jpeg" class="card-img-top">
+                <img th:if="${item.dtype == 'BOOK'}" src="resources/img/book.jpeg" class="card-img-top">
+                <img th:if="${item.dtype == 'MOVIE'}" src="resources/img/movie.jpeg" class="card-img-top">
+              </span>
+
+              <div class="card-body">
+                <b class="card-text" th:text="${item.dtype}">아이템 타입</b>
+                <p class="card-title" th:text="${item.name}">Card title</p>
+              </div>
+            </div>
+          </div>
+        </th:block>
+      </div>
+    </div>
+
+    <br/>
+
+    <!-- 페이지 번호 -->
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <th:block th:each = "i : ${#numbers.sequence(1,items.totalPages)}">
+        <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items1(page=${i-1}, itemName=${itemSearch.itemName}, itemType=${itemSearch.itemType})}"></a>
+      </th:block>
+    </div>
+
+
+    <div th:replace="fragments/footer :: footer"/>
+  </div> <!-- /container -->
+</div>
 </body>
 </html>

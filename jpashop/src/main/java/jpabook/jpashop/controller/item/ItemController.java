@@ -73,6 +73,17 @@ public class ItemController {
         return "items/itemList";
     }
 
+    @GetMapping("/items1")
+    public String items1(@PageableDefault(size = 8, sort = "createdDate", direction = Sort.Direction.DESC) Pageable pageable,
+                        @SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Long memberId,
+                        @ModelAttribute("itemSearch") ItemSearch itemSearch,
+                        Model model){
+        model.addAttribute("items", itemService.findAll(itemSearch, pageable));
+        model.addAttribute("itemSearch", itemSearch);
+        model.addAttribute("memberId", memberId);
+        return "items/itemCardList";
+    }
+
     @GetMapping("items/{itemId}/edit")
     public String updateItemForm(@PathVariable("itemId") Long itemId, Model model){
         Item item = itemService.findOne(itemId).orElseThrow(() -> new NotCorrespondingItemException("해당하는 아이템이 존재하지 않습니다."));
