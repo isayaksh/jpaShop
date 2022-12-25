@@ -32,8 +32,7 @@ public class OrderService {
     public Long order(Long memberId, Long itemId, int count){
         // 엔티티 조회
         Member member = memberRepository.findById(memberId).get();
-        Optional<Item> findItem = itemRepository.findById(itemId);
-        Item item = findItem.orElseThrow(() -> new NotCorrespondingItemException("해당하는 아이템이 존재하지 않습니다."));
+        Item item = itemRepository.findById(itemId).orElseThrow(() -> new NotCorrespondingItemException("해당하는 아이템이 존재하지 않습니다."));
 
         // 배송정보 생성
         Delivery delivery = Delivery.createDelivery(member.getAddress());
