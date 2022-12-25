@@ -33,14 +33,14 @@
 
 
     <!-- 아이템 목록 -->
-    <div>
+    <div style="height : 30em">
       <!-- 1행 -->
       <div class="row row-cols-1 row-cols-md-4 g-4">
         <th:block th:each="item : ${items}">
           <div class="col">
-            <div class="card h-100">
+            <a class="card" style="height : 13em" th:href="@{/item/info(id=${item.id})}">
 
-              <span style="height:50%">
+              <span style="height:60%">
                 <img th:if="${item.dtype == 'ALBUM'}" src="resources/img/album.jpeg" class="card-img-top">
                 <img th:if="${item.dtype == 'BOOK'}" src="resources/img/book.jpeg" class="card-img-top">
                 <img th:if="${item.dtype == 'MOVIE'}" src="resources/img/movie.jpeg" class="card-img-top">
@@ -50,7 +50,7 @@
                 <b class="card-text" th:text="${item.dtype}">아이템 타입</b>
                 <p class="card-title" th:text="${item.name}">Card title</p>
               </div>
-            </div>
+            </a>
           </div>
         </th:block>
       </div>
@@ -61,7 +61,7 @@
     <!-- 페이지 번호 -->
     <div class="btn-group me-2" role="group" aria-label="First group">
       <th:block th:each = "i : ${#numbers.sequence(1,items.totalPages)}">
-        <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items1(page=${i-1}, itemName=${itemSearch.itemName}, itemType=${itemSearch.itemType})}"></a>
+        <a type="button" class="btn btn-outline-secondary" th:text="${i}" th:href="@{items(page=${i-1}, itemName=${itemSearch.itemName}, itemType=${itemSearch.itemType})}"></a>
       </th:block>
     </div>
 

@@ -1,5 +1,6 @@
-package jpabook.jpashop.controller;
+package jpabook.jpashop.controller.order;
 
+import jpabook.jpashop.controller.SessionConst;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.item.Item;
