@@ -2,6 +2,7 @@ package jpabook.jpashop.domain.item;
 
 import jpabook.jpashop.controller.item.ItemForm;
 import jpabook.jpashop.domain.BaseEntity;
+import jpabook.jpashop.domain.cart.CartItem;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.InheritanceType.SINGLE_TABLE;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -25,13 +27,16 @@ public abstract class Item extends BaseEntity {
     @Column(name = "item_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
     protected Member member;
 
     protected String name;
     protected int price;
     protected int stockQuantity;
+
+    @OneToOne(fetch = LAZY, mappedBy = "item")
+    protected CartItem cartItem;
 
     @Column(insertable = false, updatable = false)
     private String dtype;

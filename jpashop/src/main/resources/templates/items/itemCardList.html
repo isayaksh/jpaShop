@@ -18,7 +18,7 @@
         <div class="form-floating col-sm-5">
           <select th:field="*{itemType}" class="form-select" id="floatingSelect">
             <option value="">NONE</option>
-            <option th:each="type : ${T(jpabook.jpashop.domain.ItemType).values()}"
+            <option th:each="type : ${T(jpabook.jpashop.domain.item.ItemType).values()}"
                     th:value="${type}"
                     th:text="${type}">option
             </option>

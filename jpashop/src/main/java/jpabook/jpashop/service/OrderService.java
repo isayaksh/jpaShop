@@ -62,7 +62,6 @@ public class OrderService {
 
     // 검색
     public List<Order> findOrders(OrderSearch orderSearch){
-        log.info("name : "+orderSearch.getMemberName()+", status : "+orderSearch.getOrderStatus());
         return orderRepository.findAll(orderSearch);
     }
 
