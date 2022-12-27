@@ -2,11 +2,13 @@ package jpabook.jpashop.domain.cart;
 
 import jpabook.jpashop.domain.BaseEntity;
 import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.member.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -20,8 +22,8 @@ public class CartItem extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "item_id")
@@ -31,9 +33,9 @@ public class CartItem extends BaseEntity {
     private int count;
 
     /** CartItem 생성자 **/
-    public static CartItem createCartItem(Cart cart, Item item){
+    public static CartItem createCartItem(Member member, Item item){
         CartItem cartItem = new CartItem();
-        cartItem.cart = cart;
+        cartItem.member = member;
         cartItem.item = item;
         cartItem.count = 0;
         return cartItem;

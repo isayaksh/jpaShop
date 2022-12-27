@@ -1,7 +1,6 @@
 package jpabook.jpashop;
 
 import jpabook.jpashop.domain.*;
-import jpabook.jpashop.domain.cart.Cart;
 import jpabook.jpashop.domain.item.Album;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
@@ -41,13 +40,13 @@ public class InitDb {
         private final MemberRepository memberRepository;
         public void createAdmin(){
             Address address1 = Address.createAddress("화성시", "동탄 순환대로 10길", "23541");
-            Member member1 = Member.createMember("ADMIN","PASSWORD","운영자", address1, Cart.createCart());
+            Member member1 = Member.createMember("ADMIN","PASSWORD","운영자", address1);
             em.persist(member1);
         }
 
         public void dbInit2(){
             Address address1 = Address.createAddress("동탄", "동탄 순환대로", "10988");
-            Member member1 = Member.createMember("ID2","PASSWORD2","userB", address1, Cart.createCart());
+            Member member1 = Member.createMember("ID2","PASSWORD2","userB", address1);
             em.persist(member1);
             Book book1 = Book.createBook(member1, "SPRING1 BOOK", 15000, 100, "김영한", "54321");
             em.persist(book1);
@@ -93,7 +92,7 @@ public class InitDb {
                         .limit(targetStringLength)
                         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                         .toString();
-                Member member = Member.createMember(id + "@gmail.com", password, name, Address.createAddress(city,street,zipcode), Cart.createCart());
+                Member member = Member.createMember(id + "@gmail.com", password, name, Address.createAddress(city,street,zipcode));
                 em.persist(member);
             }
         }

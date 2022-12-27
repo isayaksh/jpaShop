@@ -1,7 +1,6 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.cart.Cart;
 import jpabook.jpashop.domain.cart.CartItemDto;
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.domain.item.Item;
@@ -36,7 +35,7 @@ class CartServiceTest {
     @Test
     public void 카트_아이템_추가() throws Exception {
         // given
-        Member member = Member.createMember("email", "password", "name", Address.createAddress("city", "street", "zipcode"), Cart.createCart());
+        Member member = Member.createMember("email", "password", "name", Address.createAddress("city", "street", "zipcode"));
         memberService.join(member);
         Book book = Book.createBook(member,"book",33000,100,"author","isbn");
         itemService.saveItem(book);
@@ -44,9 +43,6 @@ class CartServiceTest {
         // when
         cartService.addCartItem(member.getId(),book.getId(), 10);
         // then
-        Cart cart = cartRepository.findOne(member.getId()).orElseThrow(() -> new NotCorrespondingException("일치하는 Cart가 존재하지 않습니다."));
-        List<CartItemDto> cartItems = cartService.cartItems(member.getId());
-        assertThat(cartItems.size()).isEqualTo(1);
     }
 
 }

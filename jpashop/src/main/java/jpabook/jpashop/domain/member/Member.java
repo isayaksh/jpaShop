@@ -3,8 +3,8 @@ package jpabook.jpashop.domain.member;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.BaseEntity;
-import jpabook.jpashop.domain.cart.Cart;
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.cart.CartItem;
 import jpabook.jpashop.domain.item.Item;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,16 +44,15 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member")
     private List<Item> items = new ArrayList<>();
 
-    @OneToOne(mappedBy = "member", fetch = LAZY, cascade = ALL)
-    private Cart cart;
+    @OneToMany(mappedBy = "member", cascade = ALL)
+    private List<CartItem> cartItems = new ArrayList<>();
 
-    public static Member createMember(String email, String password, String name, Address address, Cart cart){
+    public static Member createMember(String email, String password, String name, Address address){
         Member member = new Member();
         member.email = email;
         member.password = password;
         member.username = name;
         member.address = address;
-        member.setCart(cart);
         return member;
     }
 
@@ -69,11 +68,6 @@ public class Member extends BaseEntity {
         this.password = password;
         this.username = username;
         this.address.update(city,street,zipcode);
-    }
-
-    public void setCart(Cart cart){
-        this.cart = cart;
-        cart.setMember(this);
     }
 
 }
