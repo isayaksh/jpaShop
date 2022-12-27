@@ -53,9 +53,7 @@ public class OrderService {
     @Transactional
     public void cancelOrder(Long orderId){
         // 엔티티 조회
-
-        Optional<Order> findOrder = orderRepository.findById(orderId);
-        Order order = findOrder.orElseThrow(() -> new NotCorrespondingOrderException("해당하는 주문이 존재하지 않습니다."));
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new NotCorrespondingOrderException("해당하는 주문이 존재하지 않습니다."));
         // 주문 취소
         order.cancel();
     }

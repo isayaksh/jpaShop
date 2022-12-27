@@ -3,7 +3,6 @@ package jpabook.jpashop.controller.member;
 import jpabook.jpashop.controller.SessionConst;
 import jpabook.jpashop.controller.login.LoginForm;
 import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.cart.Cart;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.member.MemberDto;
 import jpabook.jpashop.service.MemberService;
@@ -38,7 +37,7 @@ public class MemberController {
             return "members/createMemberForm";
         }
         Address address = Address.createAddress(form.getCity(), form.getStreet(), form.getZipcode());
-        Member member = Member.createMember(form.getEmail(), form.getPassword(), form.getUsername(),address, Cart.createCart());
+        Member member = Member.createMember(form.getEmail(), form.getPassword(), form.getUsername(),address);
         memberService.join(member);
         return "redirect:/";
     }
