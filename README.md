@@ -9,7 +9,7 @@
 
 |📌 수정 사항|🗓 진행 일자|📒 수정 내용|
 |:-:|:-:|:-:|
-|양방향 맵핑 지연 로딩 미적용 문제 개선|22.12.29 ~ 22.12.29|[[JPA] @OneToOne 양방향 맵핑 지연 로딩 미적용 문제 개선](https://velog.io/@isayaksh/JPA-OneToOne-%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%B5%ED%95%91-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-%EB%AF%B8%EC%A0%81%EC%9A%A9-%EB%AC%B8%EC%A0%9C-%EA%B0%9C%EC%84%A0)|
+|양방향 맵핑 지연 로딩 미적용 문제 개선|22.12.29 ~ 22.12.29|[@OneToOne 양방향 맵핑 지연 로딩 미적용 문제 개선](https://velog.io/@isayaksh/JPA-OneToOne-%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%B5%ED%95%91-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-%EB%AF%B8%EC%A0%81%EC%9A%A9-%EB%AC%B8%EC%A0%9C-%EA%B0%9C%EC%84%A0)|
 |일괄 DELETE 쿼리 개선|22.12.28 ~ 22.12.28|[대량의 데이터 일괄 DELETE](https://velog.io/@isayaksh/JPA-%EB%8C%80%EB%9F%89%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%9D%BC%EA%B4%84-DELETE-%EC%BF%BC%EB%A6%AC-%EA%B0%9C%EC%84%A0)|
 |쇼핑몰 장바구니 기능 추가|22.12.23 ~ 22.12.27|[장바구니 기능 추가](https://velog.io/@isayaksh/Spring-%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88-%EA%B8%B0%EB%8A%A5-%EC%B6%94%EA%B0%80)|
 |다형성을 적용하여 OCP를 지키고 반복되는 코드 개선 |22.12.20 ~ 22.12.21|[상속 클래스 다형성 적용](https://velog.io/@isayaksh/JAVA-%EC%83%81%EC%86%8D-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%8B%A4%ED%98%95%EC%84%B1-%EC%A0%81%EC%9A%A9)|
