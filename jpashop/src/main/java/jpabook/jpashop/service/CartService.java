@@ -30,8 +30,10 @@ public class CartService {
     @Transactional
     public Long addCartItem(Long memberId, Long itemId, int count){
         // Member, Item 객체 찾기
-        Member member = memberRepository.findById(memberId).orElseThrow(() -> new NotCorrespondingException("CartService/addCartItem : memberId에 해당하는 Member 객체가 존재하지 않습니다."));
-        Item item = itemRepository.findById(itemId).orElseThrow(() -> new NotCorrespondingException("CartService/addCartItem : itemId에 해당하는 Item 객체가 존재하지 않습니다."));
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new NotCorrespondingException("CartService/addCartItem : memberId에 해당하는 Member 객체가 존재하지 않습니다."));
+        Item item = itemRepository.findById(itemId)
+                .orElseThrow(() -> new NotCorrespondingException("CartService/addCartItem : itemId에 해당하는 Item 객체가 존재하지 않습니다."));
 
         // CartItem 객체 찾기, 존재하지 않을 경우 새로운 CartItem 객체 생성
         CartItem cartItem = cartItemRepository.findByMemberIdAndItemId(memberId, item.getId()).orElseGet(() -> CartItem.createCartItem(member, item));
@@ -56,10 +58,9 @@ public class CartService {
         cartItemRepository.deleteAllByIds(cartItemIds);
     }
 
-
+    @Transactional
     public void order(List<Long> cartItemIds, Long memberId) {
-        for (CartItem cartItem : cartItemRepository.findAllById(cartItemIds)) {
-            orderService.order(memberId, cartItem.getItem().getId(), cartItem.getCount());
-        }
+        cartItemRepository.findAllById(cartItemIds)
+                .forEach(item -> orderService.order(memberId, item.getItem().getId(), item.getCount()));
     }
 }

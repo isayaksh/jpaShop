@@ -1,9 +1,9 @@
 package jpabook.jpashop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jpabook.jpashop.domain.order.Order;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 

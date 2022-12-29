@@ -8,8 +8,6 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -26,12 +24,10 @@ public class CartItemController {
         return "cart/cartItems";
     }
 
-
     @PostMapping("/addItem")
     public String addToCart(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false)Long memberId,
                         @RequestParam("itemId") Long itemId,
                         @RequestParam("count") int count){
-
         cartService.addCartItem(memberId, itemId, count);
         return "redirect:/cartItems";
     }
@@ -47,7 +43,6 @@ public class CartItemController {
                                 @RequestParam List<Long> cartItemIds){
         cartService.order(cartItemIds, memberId);
         cartService.cancelCartItems(cartItemIds);
-
         return "redirect:/orders";
     }
 }

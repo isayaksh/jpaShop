@@ -8,6 +8,7 @@ import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
+import jpabook.jpashop.domain.order.Order;
 
 
 /**
@@ -38,7 +39,7 @@ public class QMember extends EntityPathBase<Member> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> lastModified = _super.lastModified;
 
-    public final ListPath<jpabook.jpashop.domain.Order, jpabook.jpashop.domain.QOrder> orders = this.<jpabook.jpashop.domain.Order, jpabook.jpashop.domain.QOrder>createList("orders", jpabook.jpashop.domain.Order.class, jpabook.jpashop.domain.QOrder.class, PathInits.DIRECT2);
+    public final ListPath<Order, jpabook.jpashop.domain.QOrder> orders = this.<Order, jpabook.jpashop.domain.QOrder>createList("orders", Order.class, jpabook.jpashop.domain.QOrder.class, PathInits.DIRECT2);
 
     public final StringPath password = createString("password");
 

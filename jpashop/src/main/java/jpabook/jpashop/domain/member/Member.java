@@ -3,7 +3,7 @@ package jpabook.jpashop.domain.member;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.BaseEntity;
-import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.order.Order;
 import jpabook.jpashop.domain.cart.CartItem;
 import jpabook.jpashop.domain.item.Item;
 import lombok.Getter;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.LAZY;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity

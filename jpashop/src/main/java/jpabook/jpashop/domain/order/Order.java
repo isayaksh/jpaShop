@@ -1,5 +1,6 @@
-package jpabook.jpashop.domain;
+package jpabook.jpashop.domain.order;
 
+import jpabook.jpashop.domain.Delivery;
 import jpabook.jpashop.domain.member.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,8 @@ import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.LAZY;
 import static jpabook.jpashop.domain.DeliveryStatus.COMP;
-import static jpabook.jpashop.domain.OrderStatus.CANCEL;
-import static jpabook.jpashop.domain.OrderStatus.ORDER;
+import static jpabook.jpashop.domain.order.OrderStatus.CANCEL;
+import static jpabook.jpashop.domain.order.OrderStatus.ORDER;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity

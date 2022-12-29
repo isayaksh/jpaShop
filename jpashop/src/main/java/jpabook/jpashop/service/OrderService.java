@@ -3,6 +3,8 @@ package jpabook.jpashop.service;
 import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.member.Member;
+import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.domain.order.OrderItem;
 import jpabook.jpashop.exception.NotCorrespondingItemException;
 import jpabook.jpashop.exception.NotCorrespondingOrderException;
 import jpabook.jpashop.repository.item.ItemRepository;
@@ -15,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
