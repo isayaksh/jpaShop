@@ -1,9 +1,19 @@
+
+# H2 DB
+#spring:
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/jpashop
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+
+# MySQL DB
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jpashop?characterEncoding=utf-8&serverTimezone=Asia/Seoul
+    username: root
+    password: 7282
 
   jpa:
     hibernate:

@@ -41,7 +41,8 @@ dependencies {
 	implementation 'junit:junit:4.13.1'
 
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
+	// runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java' // ----->> 이 줄을 추가했다.
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 

@@ -2,8 +2,8 @@ package jpabook.jpashop.repository.order;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderStatus;
+import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.domain.order.OrderStatus;
 import jpabook.jpashop.domain.QOrder;
 import jpabook.jpashop.domain.member.QMember;
 import lombok.RequiredArgsConstructor;

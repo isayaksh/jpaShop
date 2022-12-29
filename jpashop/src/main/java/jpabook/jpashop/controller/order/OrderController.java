@@ -2,7 +2,7 @@ package jpabook.jpashop.controller.order;
 
 import jpabook.jpashop.controller.SessionConst;
 import jpabook.jpashop.domain.member.Member;
-import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.order.Order;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.order.OrderSearch;
 import jpabook.jpashop.service.ItemService;

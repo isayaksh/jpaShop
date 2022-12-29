@@ -12,6 +12,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.IDENTITY;
 import static javax.persistence.InheritanceType.SINGLE_TABLE;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -23,7 +24,7 @@ import static lombok.AccessLevel.PROTECTED;
 @DynamicUpdate
 public abstract class Item extends BaseEntity {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "item_id")
     private Long id;
 
@@ -34,9 +35,6 @@ public abstract class Item extends BaseEntity {
     protected String name;
     protected int price;
     protected int stockQuantity;
-
-    @OneToOne(fetch = LAZY, mappedBy = "item")
-    protected CartItem cartItem;
 
     @Column(insertable = false, updatable = false)
     private String dtype;

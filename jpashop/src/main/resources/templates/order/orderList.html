@@ -17,7 +17,7 @@
                 <div class="form-floating col-sm-5">
                     <select th:field="*{orderStatus}" class="form-select" id="floatingSelect">
                         <option value="">NONE</option>
-                        <option th:each="status : ${T(jpabook.jpashop.domain.OrderStatus).values()}"
+                        <option th:each="status : ${T(jpabook.jpashop.domain.order.OrderStatus).values()}"
                                 th:value="${status}"
                                 th:text="${status}">option
                         </option>

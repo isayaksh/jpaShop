@@ -30,6 +30,7 @@ public class ItemRepositoryImpl implements ItemRepositoryJpql{
                 .where(typeEq(itemSearch.getItemType()), nameContains(itemSearch.getItemName()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
+                .orderBy(item.createdDate.desc())
                 .fetch();
 
         Long totalCount = query
@@ -37,6 +38,7 @@ public class ItemRepositoryImpl implements ItemRepositoryJpql{
                 .from(item)
                 .where(typeEq(itemSearch.getItemType()), nameContains(itemSearch.getItemName()))
                 .fetchOne();
+
         return new PageImpl<>(items, pageable, totalCount);
     }
 

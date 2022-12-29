@@ -1,6 +1,6 @@
 package jpabook.jpashop.repository.order;
 
-import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.order.Order;
 
 import java.util.List;
 

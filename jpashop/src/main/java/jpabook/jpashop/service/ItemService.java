@@ -41,6 +41,6 @@ public class ItemService {
     }
 
     public Page<ItemDto> findAll(ItemSearch itemSearch, Pageable pageable){
-        return itemRepository.findAll(itemSearch, pageable).map(p -> new ItemDto(p));
+        return itemRepository.findAll(itemSearch, pageable).map(ItemDto::new);
     }
 }
