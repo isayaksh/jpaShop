@@ -1,11 +1,41 @@
 # Shopping Mall
 
-#### 🧷 스프링 부트와 JPA를 활용한 웹 애플리케이션 설계 및 개발에 대해 학습 (🗓 ~ 22.10.31)
+#
+## 🧷 Development
+#
+- 로그인
+- 회원 정보 수정
+- 회원 목록
+- 상품 등록
+- 상품 주문
+- 장바구니
+- 검색어 이용한 상품 탐색
 
+#
+## 🧷 Preview
+#
 ![jpashop](https://user-images.githubusercontent.com/85926257/209926456-f81cac1d-9049-43dd-b237-f807e5e064db.gif)
 
-#### 🧷 해당 프로젝트를 기반으로 코드 리팩토링 진행
+#
+## 🧷 Tech Stack
+#
 
+<div flex="float" align="center">
+  <h3>⚡️ SKILLS </h3>
+  <img height="25px" src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=springboot&logoColor=000000"/>
+  <img height="25px" src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=000000"/>
+</div>
+<div flex="float" align="center">
+  <img height="25px" src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=000000"/>
+  <img height="25px" src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=000000"/>
+</div>
+
+<br/>
+<br/>
+
+#
+## 🧷 reformation
+#
 |📌 수정 사항|🗓 진행 일자|📒 수정 내용|
 |:-:|:-:|:-:|
 |양방향 맵핑 지연 로딩 미적용 문제 개선|22.12.29 ~ 22.12.29|[@OneToOne 양방향 맵핑 지연 로딩 미적용 문제 개선](https://velog.io/@isayaksh/JPA-OneToOne-%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%B5%ED%95%91-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-%EB%AF%B8%EC%A0%81%EC%9A%A9-%EB%AC%B8%EC%A0%9C-%EA%B0%9C%EC%84%A0)|
