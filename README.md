@@ -1,8 +1,6 @@
 # Shopping Mall
 
-#
 ## 🧷 Development
-#
 - 로그인
 - 회원 정보 수정
 - 회원 목록
@@ -13,12 +11,10 @@
 
 #
 ## 🧷 Preview
-#
 ![jpashop](https://user-images.githubusercontent.com/85926257/209926456-f81cac1d-9049-43dd-b237-f807e5e064db.gif)
 
 #
 ## 🧷 Tech Stack
-#
 
 <div flex="float" align="center">
   <h3>⚡️ SKILLS </h3>
@@ -31,11 +27,9 @@
 </div>
 
 <br/>
-<br/>
 
 #
 ## 🧷 reformation
-#
 |📌 수정 사항|🗓 진행 일자|📒 수정 내용|
 |:-:|:-:|:-:|
 |양방향 맵핑 지연 로딩 미적용 문제 개선|22.12.29 ~ 22.12.29|[@OneToOne 양방향 맵핑 지연 로딩 미적용 문제 개선](https://velog.io/@isayaksh/JPA-OneToOne-%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%B5%ED%95%91-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-%EB%AF%B8%EC%A0%81%EC%9A%A9-%EB%AC%B8%EC%A0%9C-%EA%B0%9C%EC%84%A0)|
