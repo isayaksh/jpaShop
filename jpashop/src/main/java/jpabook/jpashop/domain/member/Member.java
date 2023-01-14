@@ -6,9 +6,9 @@ import jpabook.jpashop.domain.BaseEntity;
 import jpabook.jpashop.domain.order.Order;
 import jpabook.jpashop.domain.cart.CartItem;
 import jpabook.jpashop.domain.item.Item;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-@DynamicUpdate // [add] 변경된 필드의 값만 업데이트
 public class Member extends BaseEntity {
 
     @Id @GeneratedValue

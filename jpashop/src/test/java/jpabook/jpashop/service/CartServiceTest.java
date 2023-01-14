@@ -1,35 +1,20 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.cart.CartItemDto;
 import jpabook.jpashop.domain.item.Book;
-import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.member.Member;
-import jpabook.jpashop.exception.NotCorrespondingException;
-import jpabook.jpashop.repository.cart.CartItemRepository;
-import jpabook.jpashop.repository.cart.CartRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 
 import javax.transaction.Transactional;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @Transactional
-
 class CartServiceTest {
 
     @Autowired CartService cartService;
     @Autowired MemberService memberService;
     @Autowired ItemService itemService;
-    @Autowired CartRepository cartRepository;
 
 
     @Test
