@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<style>
+ .fieldError {
+ border-color: #bd2130;
+ }
+</style>
+<body>
+<div class="row justify-content-center">
+  <div class="container col-5" style="text-align:center">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <h1>LOGIN</h1>
+    <br/>
+    <form role="form" action="/login" th:object="${loginForm}" method="post">
+      <!-- EMAIL -->
+      <div class="form-floating mb-3">
+        <input type="text" th:field="*{email}" class="form-control"
+               placeholder="E-MAIL을 입력하세요"
+               th:class="${#fields.hasErrors('email')}? 'form-control fieldError' : 'form-control'">
+        <p th:if="${#fields.hasErrors('email')}"
+           th:errors="*{email}">Incorrect date</p>
+        <label>Email address</label>
+      </div>
+      <!-- PASSWORD -->
+      <div class="form-floating">
+        <input type="text" th:field="*{password}" class="form-control"
+               placeholder="PASSWORD를 입력하세요"
+               th:class="${#fields.hasErrors('password')}? 'form-control fieldError' : 'form-control'">
+        <p th:if="${#fields.hasErrors('password')}"
+           th:errors="*{password}">Incorrect date</p>
+        <label>Password</label>
+      </div>
+
+      <br/>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-secondary" type="submit">LOG IN</button>
+        <a href="/members/new" class="btn btn-outline-secondary">JOIN</a>
+      </div>
+
+    </form>
+    <br/>
+    <div th:replace="fragments/footer :: footer" />
+  </div> <!-- /container -->
+</div>
+</body>
+</html>

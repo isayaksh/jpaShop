@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <title>Hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="row justify-content-center">
+    <div class="container col-5" style="text-align:center">
+        <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+        <h1>HOME</h1>
+        <div style="text-align:right">
+            <form action="/logout" method="post">
+                <button type="submit" class="btn btn-outline-danger btn-sm">로그아웃</button>
+            </form>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" style="height:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">회원 정보</h5>
+                        <p class="card-text">현재 로그인한 회원의 정보를 확인하거나 수정할 수 있습니다.</p>
+                        <a href="/member/info" class="btn btn-secondary">회원 정보 바로가기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" style="height:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">회원 목록</h5>
+                        <p class="card-text">현재 JPA SHOP 서비스에 등록된 모든 회원 목록을 제공합니다.</p>
+                        <a href="/members" class="btn btn-secondary">회원 목록 바로가기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" style="height:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">상품 등록</h5>
+                        <p class="card-text">JPA SHOP 서비스에 판매할 상품을 등록합니다.</p>
+                        <a href="/items/new" class="btn btn-secondary">상품 등록 바로가기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" style="height:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">상품 목록</h5>
+                        <p class="card-text">현재 JPA SHOP 서비스에 등록된 모든 상품 목록을 제공합니다.</p>
+                        <a href="/items" class="btn btn-secondary">상품 목록 바로가기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card" style="height:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">장바구니</h5>
+                        <p class="card-text">장바구니에 등록된 상품 목록을 제공합니다.</p>
+                        <a href="/cartItems" class="btn btn-secondary">장바구니 바로가기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" style="height:100%">
+                    <div class="card-body">
+                        <h5 class="card-title">주문 목록</h5>
+                        <p class="card-text">현재 JPA SHOP 서비스에서 주문된 모든 주문 목록을 제공합니다.</p>
+                        <a href="/orders" class="btn btn-secondary">주문 목록 바로가기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div th:replace="fragments/footer :: footer" />
+    </div> <!-- /container -->
+</div>
+</body>
+</html>
