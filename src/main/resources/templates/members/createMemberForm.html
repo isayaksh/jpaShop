@@ -33,10 +33,10 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input type="text" th:field="*{name}" class="form-control"
+                <input type="text" th:field="*{username}" class="form-control"
                        placeholder="이름을 입력하세요"
-                       th:class="${#fields.hasErrors('name')}? 'form-control fieldError' : 'form-control'">
-                <p th:if="${#fields.hasErrors('name')}"
+                       th:class="${#fields.hasErrors('username')}? 'form-control fieldError' : 'form-control'">
+                <p th:if="${#fields.hasErrors('username')}"
                    th:errors="*{name}">Incorrect date</p>
                 <label>Name</label>
             </div>
