@@ -15,7 +15,6 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @DiscriminatorValue("BOOK")
 @NoArgsConstructor(access = PROTECTED)
-@DynamicUpdate // [add] 변경된 필드의 값만 업데이트
 public class Book extends Item{
     private String author;
     private String isbn;

@@ -13,7 +13,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 import static jpabook.jpashop.domain.item.QItem.item;
-import static jpabook.jpashop.domain.member.QMember.member;
+
 
 @RequiredArgsConstructor
 public class ItemRepositoryImpl implements ItemRepositoryJpql{

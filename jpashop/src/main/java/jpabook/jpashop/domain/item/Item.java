@@ -2,7 +2,6 @@ package jpabook.jpashop.domain.item;
 
 import jpabook.jpashop.controller.item.ItemForm;
 import jpabook.jpashop.domain.BaseEntity;
-import jpabook.jpashop.domain.cart.CartItem;
 import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
@@ -21,7 +20,6 @@ import static lombok.AccessLevel.PROTECTED;
 @Inheritance(strategy = SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
 @NoArgsConstructor(access = PROTECTED)
-@DynamicUpdate
 public abstract class Item extends BaseEntity {
 
     @Id @GeneratedValue(strategy = IDENTITY)
