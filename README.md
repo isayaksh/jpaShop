@@ -24,6 +24,11 @@ cd jpaShop
 ./gradlew bootRun
 ```
 
+### 4. URL
+```
+http://localhost:8080
+```
+
 #
 ## 🧷 Tech Stack
 
