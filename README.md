@@ -16,7 +16,7 @@ git clone https://github.com/isayaksh/jpaShop.git
 
 ### 2. Move
 ```
-cd jpashop
+cd jpaShop
 ```
 
 ### 3. Start
