@@ -7,29 +7,6 @@
 ![jpashop](https://user-images.githubusercontent.com/85926257/209926456-f81cac1d-9049-43dd-b237-f807e5e064db.gif)
 
 #
-## 🧷 Manual
-
-### 1. Git clone
-```
-git clone https://github.com/isayaksh/jpaShop.git
-```
-
-### 2. Move
-```
-cd jpaShop
-```
-
-### 3. Start
-```
-./gradlew bootRun
-```
-
-### 4. URL
-```
-http://localhost:8080
-```
-
-#
 ## 🧷 Tech Stack
 
 <div flex="float" align="center">
