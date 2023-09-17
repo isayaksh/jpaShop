@@ -32,7 +32,7 @@
 - 검색어 이용한 상품 탐색
 
 #
-## 🧷 reformation
+## 🧷 Experience
 |📌 수정 사항|🗓 진행 일자|📒 수정 내용|
 |:-:|:-:|:-:|
 |양방향 맵핑 지연 로딩 미적용 문제 개선|22.12.29 ~ 22.12.29|[@OneToOne 양방향 맵핑 지연 로딩 미적용 문제 개선](https://velog.io/@isayaksh/JPA-OneToOne-%EC%96%91%EB%B0%A9%ED%96%A5-%EB%A7%B5%ED%95%91-%EC%A7%80%EC%97%B0-%EB%A1%9C%EB%94%A9-%EB%AF%B8%EC%A0%81%EC%9A%A9-%EB%AC%B8%EC%A0%9C-%EA%B0%9C%EC%84%A0)|
